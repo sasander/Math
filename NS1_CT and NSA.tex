@@ -1,0 +1,1482 @@
+\documentclass[reqno]{amsart}
+%\usepackage[english]{babel}
+\usepackage{amssymb,amsmath,hyperref}
+\usepackage{amsrefs}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+% Dag Normann LaTeX definitions
+
+
+%\newcommand{\R}{{\Bbb R}}
+%\newcommand{\N}{{\Bbb N}}
+%\newcommand{\B}{{\Bbb B}}
+%\newcommand{\Q}{{\Bbb Q}}
+%\newcommand{\Z}{{\Bbb Z}}
+\newcommand{\lb}{[\![}
+\newcommand{\rb}{]\!]}
+\newcommand{\qcb}{\mathsf{QCB}}
+\newcommand{\QCB}{\mathsf{QCB}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{defi}[thm]{Definition}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{nota}[thm]{Notation}
+\newtheorem{exa}[thm]{Example}
+\newtheorem{rul}[thm]{Rule}
+\newtheorem{ax}[thm]{Axiom}
+\newtheorem{set}[thm]{Axiom set}
+\newtheorem{sch}[thm]{Axiom schema}
+\newtheorem{princ}[thm]{Principle}
+\newtheorem{algo}[thm]{Algorithm}
+\newtheorem{tempie}[thm]{Template}
+\newtheorem{ack}[thm]{Acknowledgement}
+\newtheorem{specialcase}[thm]{Special Case}
+\newtheorem{theme}[thm]{Theme}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem*{tempo*}{Template}
+
+\newcommand\be{\begin{equation}}
+\newcommand\ee{\end{equation}} 
+\def\bdefi{\begin{defi}\rm}
+\def\edefi{\end{defi}}
+\def\bnota{\begin{nota}\rm}
+\def\enota{\end{nota}}
+\def\FIVE{\Pi_{1}^{1}\text{-\textsf{CA}}_{0}}
+\def\meta{\textup{\textup{meta}}}
+\def\ATR{\textup{\textsf{ATR}}}
+\def\ZFC{\textup{\textsf{ZFC}}}
+\def\IST{\textup{\textsf{IST}}}
+\def\MU{\textup{\textsf{MU}}}
+\def\BET{\textup{\textsf{BET}}}
+\def\ALP{\textup{\textsf{ALP}}}
+\def\T{\mathcal{T}}
+ \def\TT{\mathcal{TT}}
+\def\STP{\textup{\textsf{STP}}}
+\def\PA{\textup{PA}}
+\def\FAN{\textup{\textsf{FAN}}}
+\def\DNR{\textup{\textsf{DNR}}}
+\def\RWWKL{\textup{\textsf{RWWKL}}}
+\def\RWKL{\textup{\textsf{RWKL}}}
+\def\H{\textup{\textsf{H}}}
+\def\ef{\textup{\textsf{ef}}}
+\def\ns{\textup{\textsf{ns}}}
+\def\RCA{\textup{\textsf{RCA}}}
+%\def\bennot{\textup{E-HA}^{\omega*}_{st}}
+\def\({\textup{(}}
+\def\){\textup{)}}
+\def\WO{\textup{\textsf{WO}}}
+\def\RCAo{\textup{\textsf{RCA}}_{0}^{\omega}}
+\def\WKL{\textup{\textsf{WKL}}}
+\def\PUC{\textup{\textsf{PUC}}}
+\def\WWKL{\textup{\textsf{WWKL}}}
+\def\bye{\end{document}}
+%\def\rec{\textup{rec}}
+%\def\sP{^{*}\mathcal  P}
+\def\P{\textup{\textsf{P}}}
+%\def\Pf{{\mathcal{P}_{\textup{fin}}}}
+\def\N{{\mathbb  N}}
+\def\Q{{\mathbb  Q}}
+\def\R{{\mathbb  R}}
+\def\L{{\mathfrak  L}}
+\def\A{{\mathbb  A}}
+\def\C{{\mathbb  C}}
+\def\CC{{\mathfrak  C}}
+\def\NN{{\mathfrak  N}}
+\def\B{{\mathbb  B}}
+\def\I{{\textsf{\textup{I}}}}
+\def\D{{\mathbb  D}}
+\def\E{{\mathcal  E}}
+\def\FAN{\textup{\textsf{FAN}}}
+\def\PUC{\textup{\textsf{PUC}}}
+\def\WFAN{\textup{\textsf{WFAN}}}
+\def\UFAN{\textup{\textsf{UFAN}}}
+\def\MUC{\textup{\textsf{MUC}}}
+\def\st{\textup{st}}
+\def\di{\rightarrow}
+\def\asa{\leftrightarrow}
+\def\ACA{\textup{\textsf{ACA}}}
+\def\paai{\Pi_{1}^{0}\textup{-\textsf{TRANS}}}
+\def\Paai{\Pi_{1}^{1}\textup{-\textsf{TRANS}}}
+\def\QFAC{\textup{\textsf{QF-AC}}}
+\def\PRA{\textup{\textsf{PRA}}}
+\def\WWF{\textup{\textsf{WWF}}}
+\def\NUC{\textup{\textsf{NUC}}}
+%\def\VCF{\textup{\textsf{VCF}}}
+\def\LMP{\textup{\textsf{LMP}}}
+%\def\RKL{\textup{\textsf{RKL}}}
+\def\TJ{\textup{\textsf{TJ}}}
+%\def\SJ{\textup{\textsf{SJ}}}
+%\def\SHJ{\textup{\textsf{SHJ}}}
+%\def\META{\textup{\textsf{META}}}
+\def\SCF{\textup{\textsf{SCF}}}
+\def\WCF{\textup{\textsf{WCF}}}
+\def\HAC{\textup{\textsf{HAC}}}
+\def\INT{\textup{\textsf{int}}}
+
+\setcounter{tocdepth}{3}
+\numberwithin{equation}{section}
+\numberwithin{thm}{section}
+
+\usepackage{comment}
+
+\begin{document}
+\title[Computability theory and Nonstandard Analysis]{Computability theory, Nonstandard Analysis, and their connections}
+\author{Dag Normann}
+\address{Department of Mathematics, The University 
+of Oslo, P.O. Box 1053, Blindern N-0316 Oslo, Norway}
+\email{dnormann@math.uio.no}
+\author{Sam Sanders}
+\address{Munich Center for Mathematical Philosophy, LMU Munich, Germany \& Department of Mathematics, Ghent University}
+\email{sasander@me.com}
+
+\begin{abstract}
+In this paper we connect two seemingly unrelated topics, respectively in computability theory and Nonstandard Analysis.  % and the surprising connection between these topics.
+In particular, we investigate the following:
+\begin{enumerate}
+ \renewcommand{\theenumi}{T.\arabic{enumi}}
+\item We introduce the \emph{special fan functional} $\Theta$ and establish that it is easy to compute $\Theta$ in intuitionistic mathematics but hard to compute in classical mathematics.  
+In particular, we show that the intuitionistic fan functional $\MUC$ can compute $\Theta$, but that the Turing jump functional $(\exists^{2})$ cannot (and the same for \emph{any} type two functional).
+We show that the classical \emph{type three} functional $(\E_{2})$, which gives rise to full second-order arithmetic, can compute $\Theta$.  
+Thus, \emph{first-order strength} and \emph{computational hardness} diverge significantly for the special fan functional \label{T1}
+\item We study the nonstandard counterparts of the `Big Five' systems $\WKL_{0}$, $\ACA_{0}$, and $\FIVE$ of Reverse Mathematics, resp.\ the nonstandard compactness of Cantor space $\STP$ and the \emph{Transfer} axiom limited to $\Pi_{1}^{0}$-formulas $\paai$, and limited to $\Pi_{1}^{1}$-formulas $\Paai$.  While the Big Five of Reverse Mathematics are linearly ordered, 
+and $\FIVE\di \ACA_{0}\di \WKL_{0}$ in particular, we show the non-implications $\paai\not\di \STP\not\!\leftarrow \Paai$ for the respective nonstandard counterparts.\label{T2}  % (and much stronger Transfer principles). 
+
+\item We show that the results \eqref{T1} and \eqref{T2} are intimately connected.  In fact, the non-implications in \eqref{T2} are obtained \emph{directly} from the non-computability results in \eqref{T1}, and we show that non-computability results also follow from non-implications in Nonstandard Analysis.  
+\end{enumerate}
+\end{abstract}
+
+\maketitle
+\thispagestyle{empty}
+
+%Template!  
+%
+\newpage
+\tableofcontents
+
+\section{Introduction}
+
+
+\section{Background: internal set theory and Reverse Mathematics}\label{base}
+In this section, we introduce Nelson's syntactic approach to Nonstandard Analysis \emph{internal set theory}, and it fragments based on Peano arithmetic from \cite{brie}. 
+We also briefly sketch Friedman's foundational program \emph{Reverse Mathematics}.  
+\subsection{Internal set theory and its fragments}\label{P}
+In this section, we discuss Nelson's \emph{internal set theory}, first introduced in \cite{wownelly}, and its fragment $\P$ from \cite{brie}.  
+The latter fragments are essential to our enterprise, especially by Theorem~\ref{consresultcor} below.  
+\subsubsection{Internal set theory 101}\label{IIST}
+In Nelson's \emph{syntactic} approach to Nonstandard Analysis (\cite{wownelly}), as opposed to Robinson's semantic one (\cite{robinson1}), a new predicate `st($x$)', read as `$x$ is standard' is added to the language of \textsf{ZFC}, the usual foundation of mathematics.  
+The notations $(\forall^{\st}x)$ and $(\exists^{\st}y)$ are short for $(\forall x)(\st(x)\di \dots)$ and $(\exists y)(\st(y)\wedge \dots)$.  A formula is called \emph{internal} if it does not involve `st', and \emph{external} otherwise.   
+The three external axioms \emph{Idealisation}, \emph{Standard Part}, and \emph{Transfer} govern the new predicate `st';  They are respectively defined\footnote{The superscript `fin' in \textsf{(I)} means that $x$ is finite, i.e.\ its number of elements are bounded by a natural number.} as:  
+\begin{enumerate}
+\item[\textsf{(I)}] $(\forall^{\st~\textup{fin}}x)(\exists y)(\forall z\in x)\varphi(z,y)\di (\exists y)(\forall^{\st}x)\varphi(x,y)$, for internal $\varphi$ with any (possibly nonstandard) parameters.  
+\item[\textsf{(S)}] $(\forall^{\st} x)(\exists^{\st}y)(\forall^{\st}z)\big((z\in x\wedge \varphi(z))\asa z\in y\big)$, for any $\varphi$.
+\item[\textsf{(T)}] $(\forall^{\st}t)\big[(\forall^{\st}x)\varphi(x, t)\di (\forall x)\varphi(x, t)\big]$, where $\varphi(x,t)$ is internal, and only has free variables $t, x$.  %  $t$ captures \emph{all} parameters of $\varphi$, and $t$ is standard.  
+\end{enumerate}
+The system \textsf{IST} is (the internal system) \textsf{ZFC} extended with the aforementioned external axioms;  
+The former is a conservative extension of \textsf{ZFC} for the internal language, as proved in \cite{wownelly}.    % i.e.\ without `st'. 
+
+\medskip
+
+In \cite{brie}, the authors study G\"odel's system $\textsf{T}$ extended with special cases of the external axioms of \textsf{IST}.  
+In particular, they consider the systems $\H$ and $\P$ which are conservative extensions of the (internal) logical systems \textsf{E-HA}$^{\omega}$ and $\textsf{E-PA}^{\omega}$, respectively \emph{Heyting and Peano arithmetic in all finite types and the axiom of extensionality}.       
+We refer to \cite{kohlenbach3}*{\S3.3} for the exact definitions of the (mainstream in mathematical logic) systems \textsf{E-HA}$^{\omega}$ and $\textsf{E-PA}^{\omega}$.  
+Furthermore, \textsf{E-PA}$^{\omega*}$ and $\textsf{E-HA}^{\omega*}$ are the definitional extensions of \textsf{E-PA}$^{\omega}$ and $\textsf{E-HA}^{\omega}$ with types for finite sequences, as in \cite{brie}*{\S2}.  For the former systems, we require some notation.  
+\begin{nota}[Finite sequences]\label{skim}\rm
+The systems $\textsf{E-PA}^{\omega*}$ and $\textsf{E-HA}^{\omega*}$ have a dedicated type for `finite sequences of objects of type $\rho$', namely $\rho^{*}$.  Since the usual coding of pairs of numbers goes through in both, we shall not always distinguish between $0$ and $0^{*}$.  % See e.g.\ the definition $(\GH)$ of the Gandy-Hyland functional in Section \ref{intro}.  
+Similarly, we do not always distinguish between `$s^{\rho}$' and `$\langle s^{\rho}\rangle$', where the former is `the object $s$ of type $\rho$', and the latter is `the sequence of type $\rho^{*}$ with only element $s^{\rho}$'.  The empty sequence for the type $\rho^{*}$ is denoted by `$\langle \rangle_{\rho}$', usually with the typing omitted.  Furthermore, we denote by `$|s|=n$' the length of the finite sequence $s^{\rho^{*}}=\langle s_{0}^{\rho},s_{1}^{\rho},\dots,s_{n-1}^{\rho}\rangle$, where $|\langle\rangle|=0$, i.e.\ the empty sequence has length zero.
+For sequences $s^{\rho^{*}}, t^{\rho^{*}}$, we denote by `$s*t$' the concatenation of $s$ and $t$, i.e.\ $(s*t)(i)=s(i)$ for $i<|s|$ and $(s*t)(j)=t(j-|s|)$ for $|s|\leq j< |s|+|t|$. For a sequence $s^{\rho^{*}}$, we define $\overline{s}N:=\langle s(0), s(1), \dots,  s(N)\rangle $ for $N^{0}<|s|$.  
+For a sequence $\alpha^{0\di \rho}$, we also write $\overline{\alpha}N=\langle \alpha(0), \alpha(1),\dots, \alpha(N)\rangle$ for \emph{any} $N^{0}$.  By way of shorthand, $q^{\rho}\in Q^{\rho^{*}}$ abbreviates $(\exists i<|Q|)(Q(i)=_{\rho}q)$.  Finally, we shall use $\underline{x}, \underline{y},\underline{t}, \dots$ as short for tuples $x_{0}^{\sigma_{0}}, \dots x_{k}^{\sigma_{k}}$ of possibly different type $\sigma_{i}$.          
+\end{nota}    
+%
+%\medskip
+%
+%In the next two sections, we introduce the systems $\P$ and $\H$ assuming familiarity with the higher-type framework (See e.g.\ \cite})  
+\subsubsection{The classical system $\P$}\label{PIPI}
+In this section, we introduce the system $\P$, a conservative extension of $\textsf{E-PA}^{\omega}$ with fragments of Nelson's $\IST$.  
+
+\medskip
+
+To this end, we first introduce the base system $\textsf{E-PA}_{\st}^{\omega*}$.  
+We use the same definition as \cite{brie}*{Def.~6.1}, where \textsf{E-PA}$^{\omega*}$ is the definitional extension of \textsf{E-PA}$^{\omega}$ with types for finite sequences as in \cite{brie}*{\S2}.  
+The set $\T^{*}$ is defined as the collection of all the constants in the language of $\textsf{E-PA}^{\omega*}$.    
+\bdefi\label{debs}
+The system $ \textsf{E-PA}^{\omega*}_{\st} $ is defined as $ \textsf{E-PA}^{\omega{*}} + \T^{*}_{\st} + \textsf{IA}^{\st}$, where $\T^{*}_{\st}$
+consists of the following axiom schemas.
+\begin{enumerate}
+\item The schema\footnote{The language of $\textsf{E-PA}_{\st}^{\omega*}$ contains a symbol $\st_{\sigma}$ for each finite type $\sigma$, but the subscript is essentially always omitted.  Hence $\T^{*}_{\st}$ is an \emph{axiom schema} and not an axiom.\label{omit}} $\st(x)\wedge x=y\di\st(y)$,
+\item The schema providing for each closed term $t\in \T^{*}$ the axiom $\st(t)$.
+\item The schema $\st(f)\wedge \st(x)\di \st(f(x))$.
+\end{enumerate}
+The external induction axiom \textsf{IA}$^{\st}$ is as follows.  
+\be\tag{\textsf{IA}$^{\st}$}
+\Phi(0)\wedge(\forall^{\st}n^{0})(\Phi(n) \di\Phi(n+1))\di(\forall^{\st}n^{0})\Phi(n).     
+\ee
+\edefi
+Secondly, we introduce some essential fragments of $\IST$ studied in \cite{brie}.  
+\bdefi[External axioms of $\P$]~
+%\be\tag{$\HAC_{\INT}$}
+\begin{enumerate}
+\item$\HAC_{\INT}$: For any internal formula $\varphi$, we have
+\be\label{HACINT}
+(\forall^{\st}x^{\rho})(\exists^{\st}y^{\tau})\varphi(x, y)\di \big(\exists^{\st}F^{\rho\di \tau^{*}}\big)(\forall^{\st}x^{\rho})(\exists y^{\tau}\in F(x))\varphi(x,y),
+\ee
+\item $\textsf{I}$: For any internal formula $\varphi$, we have
+%\be\tag{\textsf{I}}
+\[
+(\forall^{\st} x^{\sigma^{*}})(\exists y^{\tau} )(\forall z^{\sigma}\in x)\varphi(z,y)\di (\exists y^{\tau})(\forall^{\st} x^{\sigma})\varphi(x,y), 
+%?stx?? ?y? ?x??? x???x?,y????y? ?stx? ?(x,y).
+\]
+\item The system $\P$ is $\textsf{E-PA}_{\st}^{\omega*}+\textsf{I}+\HAC_{\INT}$.
+\end{enumerate}
+\end{defi}
+Note that \textsf{I} and $\HAC_{\INT}$ are fragments of Nelson's axioms \emph{Idealisation} and \emph{Standard part}.  
+By definition, $F$ in \eqref{HACINT} only provides a \emph{finite sequence} of witnesses to $(\exists^{\st}y)$, explaining its name \emph{Herbrandized Axiom of Choice}.   
+
+\medskip
+
+%Hence, the system $ \textsf{E-PA}^{\omega*}_{\st} $ is a trivial extension of \textsf{E-PA}$^{\omega^{*}}$.  
+The system $\P$ is connected to $\textsf{E-PA}^{\omega}$ by the following theorem which expresses that we may obtain effective results as in \eqref{effewachten} from any theorem of Nonstandard Analysis which has the same form as in \eqref{bog}.  It is known that the scope of this corollary includes the Big Five systems of Reverse Mathematics (\cite{sambon}), the Reverse Mathematics zoo (\cite{samzoo, samzooII}), and higher-order computability theory (\cite{samGH}).  % (See Section \ref{RM}).  % while the RM zoo.     
+\begin{thm}[Term extraction]\label{consresultcor}
+%For internal $\psi$ and $\Phi(\underline{a})\equiv(\forall^{\st}\underline{x})(\exists^{\st}\underline{y})\psi(\underline{x},\underline{y}, \underline{a})$, we have $[\Phi(\underline{a})]^{S_{\st}}\equiv \Phi(\underline{a})$.  Hence, 
+If $\Delta_{\INT}$ is a collection of internal formulas and $\psi$ is internal, and
+\be\label{bog}
+\P + \Delta_{\INT} \vdash (\forall^{\st}\underline{x})(\exists^{\st}\underline{y})\psi(\underline{x},\underline{y}, \underline{a}), 
+\ee
+then one can extract from the proof a sequence of closed terms $t$ in $\mathcal{T}^{*}$ such that
+\be\label{effewachten}
+\textup{\textsf{E-PA}}^{\omega*} + \Delta_{\INT} \vdash (\forall \underline{x})(\exists \underline{y}\in t(\underline{x}))\psi(\underline{x},\underline{y},\underline{a}).
+\ee
+%If for internal $\psi$ the formula $\Phi(\underline{a})\equiv(\forall^{\st}\underline{x})(\exists^{\st}\underline{y})\psi(\underline{x},\underline{y}, \underline{a})$ satisfies \eqref{antecedn}, then 
+%$(\forall \underline{x})(\exists \underline{y}\in t(\underline{x}))\psi(\underline{x},\underline{y},\underline{a})$ is proved in the corresponding formula \eqref{consequalty}.  
+\end{thm}
+\begin{proof}
+See \cite{samGH}*{\S2} or \cite{sambon}*{\S2}.
+\end{proof}
+Curiously, the previous theorem is neither explicitly listed or proved in \cite{brie}.
+For the rest of this paper, the notion `normal form' shall refer to a formula as in \eqref{bog}, i.e.\ of the form $(\forall^{\st}x)(\exists^{\st}y)\varphi(x,y)$ for $\varphi$ internal.  
+
+\medskip
+
+Finally, the previous theorems do not really depend on the presence of full Peano arithmetic.  
+We shall study the following subsystems.   
+\bdefi~
+\begin{enumerate}
+\item Let \textsf{E-PRA}$^{\omega}$ be the system defined in \cite{kohlenbach2}*{\S2} and let \textsf{E-PRA}$^{\omega*}$ 
+be its definitional extension with types for finite sequences as in \cite{brie}*{\S2}. 
+\item $(\QFAC^{\rho, \tau})$ For every quantifier-free internal formula $\varphi(x,y)$, we have
+\be\label{keuze}
+(\forall x^{\rho})(\exists y^{\tau})\varphi(x,y) \di (\exists F^{\rho\di \tau})(\forall x^{\rho})\varphi(x,F(x))
+\ee
+\item The system $\RCAo$ is $\textsf{E-PRA}^{\omega}+\QFAC^{1,0}$.  
+\end{enumerate}
+\edefi
+The system $\RCAo$ is Kohlenbach's `base theory of higher-order Reverse Mathematics' as introduced in \cite{kohlenbach2}*{\S2}.  
+We permit ourselves a slight abuse of notation by also referring to the system $\textsf{E-PRA}^{\omega*}+\QFAC^{1,0}$ as $\RCAo$.
+\begin{cor}\label{consresultcor2}
+The previous theorem and corollary go through for $\P$ and $\textsf{\textup{E-PA}}^{\omega*}$ replaced by $\P_{0}\equiv \textsf{\textup{E-PRA}}^{\omega*}+\T_{\st}^{*} +\HAC_{\INT} +\textsf{\textup{I}}+\QFAC^{1,0}$ and $\RCAo$.  
+\end{cor}
+\begin{proof}
+The proof of \cite{brie}*{Theorem 7.7} goes through for any fragment of \textsf{E-PA}$^{\omega{*}}$ which includes \textsf{EFA}, sometimes also called $\textsf{I}\Delta_{0}+\textsf{EXP}$.  
+In particular, the exponential function is (all what is) required to `easily' manipulate finite sequences.    
+\end{proof}
+Finally, we note that Ferreira and Gaspar present a system similar to $\P$ in \cite{fega}, which however is less suitable for our purposes.    
+
+\subsubsection{Notations and conventions}
+We introduce notations and conventions for $\P$.  
+
+\medskip
+
+First of all, we mostly use the same notations as in \cite{brie}.  % some of which we repeat here.  
+\begin{rem}[Notations]\label{notawin}\rm
+We write $(\forall^{\st}x^{\tau})\Phi(x^{\tau})$ and $(\exists^{\st}x^{\sigma})\Psi(x^{\sigma})$ as short for 
+$(\forall x^{\tau})\big[\st(x^{\tau})\di \Phi(x^{\tau})\big]$ and $(\exists^{\st}x^{\sigma})\big[\st(x^{\sigma})\wedge \Psi(x^{\sigma})\big]$.     
+We also write $(\forall x^{0}\in \Omega)\Phi(x^{0})$ and $(\exists x^{0}\in \Omega)\Psi(x^{0})$ as short for 
+$(\forall x^{0})\big[\neg\st(x^{0})\di \Phi(x^{0})\big]$ and $(\exists x^{0})\big[\neg\st(x^{0})\wedge \Psi(x^{0})\big]$.  
+%Furthermore, if $\neg\st(x^{0})$ (resp.\ $\st(x^{0})$), we also say that $x^{0}$ is `infinite' (resp.\ finite) and write `$x^{0}\in \Omega$'.  %In keeping with the internal 
+Finally, a formula $A$ is `internal' if it does not involve $\st$, and $A^{\st}$ is defined from $A$ by appending `st' to all quantifiers (except bounded number quantifiers).    
+\end{rem}
+\medskip
+
+Secondly, we use the usual extensional notion of equality. 
+%None of our results depend crucially on this notion, i.e.\ we would obtain the same results for non-extensional notions of equality by dropping the axiom \eqref{EXT} introduced now.    
+\begin{rem}[Equality]\label{equ}\rm
+The system $\textsf{E-PA}^{\omega*}$ includes equality between natural numbers `$=_{0}$' as a primitive.  Equality `$=_{\tau}$' and inequality $\leq_{\tau}$ for $x^{\tau},y^{\tau}$ is:
+\be\label{aparth}
+[x=_{\tau}y] \equiv (\forall z_{1}^{\tau_{1}}\dots z_{k}^{\tau_{k}})[xz_{1}\dots z_{k}=_{0}yz_{1}\dots z_{k}],
+\ee
+\be\label{aparth1}
+[x\leq_{\tau}y] \equiv (\forall z_{1}^{\tau_{1}}\dots z_{k}^{\tau_{k}})[xz_{1}\dots z_{k}\leq_{0}yz_{1}\dots z_{k}],
+\ee
+if the type $\tau$ is composed as $\tau\equiv(\tau_{1}\di \dots\di \tau_{k}\di 0)$.
+In the spirit of Nonstandard Analysis, we define `approximate equality $\approx_{\tau}$' as follows:
+\be\label{aparth2}
+[x\approx_{\tau}y] \equiv (\forall^{\st} z_{1}^{\tau_{1}}\dots z_{k}^{\tau_{k}})[xz_{1}\dots z_{k}=_{0}yz_{1}\dots z_{k}]
+\ee
+with the type $\tau$ as above.  
+%As noted in \cite{brie}*{p.\ 1973}, weak nonstandard systems can include the axiom of extensionality for $=_{\tau}$, but not for $\approx_{\tau}$.
+All the above systems include the \emph{axiom of extensionality} for all $\varphi^{\rho\di \tau}$ as follows:
+\be\label{EXT}\tag{\textsf{E}}  
+(\forall  x^{\rho},y^{\rho}) \big[x=_{\rho} y \di \varphi(x)=_{\tau}\varphi(y)   \big].
+\ee
+However, as noted in \cite{brie}*{p.\ 1973}, the so-called axiom of \emph{standard} extensionality \eqref{EXT}$^{\st}$ is problematic and cannot be included in $\P$.  
+%Finally, a functional $\Xi^{ 1\di 0}$ is called an \emph{extensionality functional} for $\varphi^{1\di 1}$ if 
+%\be\label{turki}
+%(\forall k, f^{1}, g^{1})\big[ \overline{f}\Xi(f,g, k)=_{0}\overline{g}\Xi(f,g,k) \di \overline{\varphi(f)}k=_{0}\overline{\varphi(g)}k \big],  
+%\ee
+%i.e.\ $\Xi$ witnesses \eqref{EXT} for $\varphi$.  
+%As will become clear in Section \ref{X}, standard extensionality is translated by our template $\CI$ into the existence of an extensionality functional, and the latter amounts to no more than an unbounded search.   % (or $\QFAC^{1,0}$).     
+\end{rem}
+Thirdly, the system $\P$ proves overspill and underspill, which are quite useful principles.
+\begin{thm}\label{doppi}
+The systems $\P$ and $\P_{0}$ prove \emph{overspill}, i.e.\
+\be\tag{\textsf{OS}}
+(\forall^{\st}x^{\rho})\varphi(x)\di (\exists y^{\rho})\big[\neg\st(y)\wedge \varphi(y)  \big],
+\ee
+for any internal formula $\varphi$.
+\end{thm}
+\begin{proof}
+See \cite{brie}*{Prop.\ 3.3}.  
+\end{proof}
+Fourth, we consider the following remark on how $\HAC_{\INT}$ and $\textsf{I}$ are used.  
+\begin{rem}[Using $\HAC_{\INT}$ and $\textsf{I}$]\label{simply}\rm
+By definition, $\HAC_{\INT}$ produces a functional $F^{\sigma\di \tau^{*}}$ which outputs a \emph{finite sequence} of witnesses.  
+However, $\HAC_{\INT}$ provides an actual \emph{witnessing functional} assuming (i) $\tau=0$ in $\HAC_{\INT}$ and (ii) the formula $\varphi$ from $\HAC_{\INT}$ is `sufficiently monotone' as in: 
+$(\forall^{\st} x^{\sigma},n^{0},m^{0})\big([n\leq_{0}m \wedge\varphi(x,n)] \di \varphi(x,m)\big)$.    
+Indeed, in this case one simply defines $G^{\sigma+1}$ by $G(x^{\sigma}):=\max_{i<|F(x)|}F(x)(i)$ which satisfies $(\forall^{\st}x^{\sigma})\varphi(x, G(x))$.  
+% Indeed, consider \eqref{tochie} and note that the internal formula in the latter is monotone as above.  Taking the maximum of $t$ from \eqref{tochie} as $u(g, k'):=\max_{i<|t(g,k')|}t(g, k')(i)$, one can drop the quantifier `$(\exists N'\in t(g,k'))$' in \eqref{tochie} to obtain \eqref{tochie2} and \eqref{crux}.  
+To save space in proofs, we will sometimes skip the (obvious) step involving the maximum of finite sequences, when applying $\HAC_{\INT}$.  %$\textsf{I}$ and term extraction. 
+We assume the same convention for terms obtained from Theorem \ref{consresultcor}, and applications of the contraposition of idealisation \textsf{I}.  
+\end{rem}
+
+
+\subsection{Introducing Reverse Mathematics}\label{RM}
+Reverse Mathematics (RM) is a program in the foundations of mathematics initiated around 1975 by Friedman (\cites{fried,fried2}) and developed extensively by Simpson (\cite{simpson2, simpson1}) and others.  We refer to \cite{simpson2} for an introduction to RM; we do sketch some of its aspects essential to this paper.  
+
+\medskip
+  
+The aim of RM is to find the axioms necessary to prove a statement of \emph{ordinary} mathematics, i.e.\ dealing with countable or separable objects.   
+The classical\footnote{In \emph{Constructive Reverse Mathematics} (\cite{ishi1}), the base theory is based on intuitionistic logic.} base theory $\RCA_{0}$ of `computable\footnote{The system $\RCA_{0}$ consists of induction $I\Sigma_{1}$, and the {\bf r}ecursive {\bf c}omprehension {\bf a}xiom $\Delta_{1}^{0}$-CA.} mathematics' is always assumed.  
+Thus, the aim is:  
+\begin{quote}
+\emph{The aim of \emph{RM} is to find the minimal axioms $A$ such that $\RCA_{0}$ proves $ [A\di T]$ for statements $T$ of ordinary mathematics.}
+\end{quote}
+Surprisingly, once the minimal axioms $A$ have been found, we almost always also have $\RCA_{0}\vdash [A\asa T]$, i.e.\ not only can we derive the theorem $T$ from the axioms $A$ (the `usual' way of doing mathematics), we can also derive the axiom $A$ from the theorem $T$ (the `reverse' way of doing mathematics).  In light of the latter, the field was baptised `Reverse Mathematics'.    
+
+\medskip
+
+Perhaps even more surprisingly, in the majority\footnote{Exceptions are classified in the so-called Reverse Mathematics zoo (\cite{damirzoo}).
+} 
+of cases for a statement $T$ of ordinary mathematics, either $T$ is provable in $\RCA_{0}$, or the latter proves $T\asa A_{i}$, where $A_{i}$ is one of the logical systems $\WKL_{0}, \ACA_{0},$ $ \ATR_{0}$ or $\FIVE$.  The latter together with $\RCA_{0}$ form the `Big Five' and the aforementioned observation that most mathematical theorems fall into one of the Big Five categories, is called the \emph{Big Five phenomenon} (\cite{montahue}*{p.~432}).  
+Furthermore, each of the Big Five has a natural formulation in terms of (Turing) computability (See e.g.\ \cite{simpson2}*{I.3.4, I.5.4, I.7.5}).
+As noted by Simpson in \cite{simpson2}*{I.12}, each of the Big Five also corresponds (sometimes loosely) to a foundational program in mathematics.  
+
+\medskip
+
+Now, the logical framework for RM is \emph{second-order arithmetic}, i.e.\ only natural numbers and sets thereof are available.  
+For this reason higher-order objects such as continuous real functions and topologies are not available directly, and are represented by so-called codes (See e.g.\ \cite{simpson2}*{II.6.1} and \cite{mummy}).  Kohlenbach has introduced \emph{higher-order} RM and the associated base theory $\RCAo$ where the language includes all finite types; we refer to \cite{kohlenbach2}*{\S2} for the definition of the latter system.  
+
+\medskip
+
+Finally, we consider an interesting observation regarding the Big Five systems of Reverse Mathematics, namely that these five systems satisfy the strict implications:
+\be\label{linord}
+\FIVE\di \ATR_{0}\di \ACA_{0}\di\WKL_{0}\di \RCA_{0}.
+\ee
+By contrast, there are many incomparable logical statements in second-order arithmetic.  For instance, a regular plethora of such statements may be found in the \emph{Reverse Mathematics zoo} in \cite{damirzoo}.  The latter is a collection of theorems which fall outside of the Big Five classification of RM.  
+
+\section{Main results}
+In this section, we prove the results sketched in the introduction.  
+
+\subsection{Computing the special fan functional}\label{prim}
+In this section, we study the relationship between the new \emph{special fan functional} and mainstream functionals like the \emph{Turing jump functional}.
+As a main result, we show that the latter (and in fact any type two functional) cannot compute (in the sense of Kleene's S1-S9 from \cite{longmann}*{\S8}) the special fan functional.    
+
+\medskip
+
+As to its provenance, the special fan functional was first introduced in \cite{samGH}*{\S3} in the study of the Gandy-Hyland functional.  
+The special fan functional is an object of classical mathematics in that it can be defined in a (relatively strong) fragment of set theory by Theorem \ref{import3} in Section~\ref{tokie}.  
+Furthermore, the special fan functional  may be derived from the \emph{intuitionistic} fan functional, as shown in Section \ref{indie}.  The latter result shows that the existence of the special fan functional has quite weak first-order strength (in contrast to its computational strength).       %hardness?
+
+\subsubsection{The special and intuitionistic fan functionals}\label{indie}
+In this section, we introduce the functionals from the title and show that the latter computes the former via a term from G\"odel's $\textsf{T}$.  
+In particular, the name `special fan functional' derives from this relative computability result.   
+%{enumerate}
+%\item  A special fan functional may be computed (via a term in G\"odel's \textsf{T}) from the \emph{intuitionistic fan functional} $\Omega^{3}$ as in Definition \ref{into}.
+%\item Any special fan functional computes (via a term in G\"odel's \textsf{T}) the effective version of the fan theorem.
+%\end{enumerate}  
+
+\medskip
+
+First of all, we define the special fan functional.  We reserve the variables $S^{1}, T^{1}, U^{1}$ for trees and denote by `$T^{1}\leq_{1}1$' that $T$ is a binary tree.  Recall that $1^{*}$ is the type of finite sequences of type $1$ as in Notation \ref{skim}. 
+\bdefi[Special fan functional]
+We define $\SCF(\Theta)$ as follows for $\Theta^{(2\di (0\times 1^{*}))}$:
+\[
+(\forall g^{2}, T^{1}\leq_{1}1)\big[(\forall \alpha \in \Theta(g)(2))  (\overline{\alpha}g(\alpha)\not\in T)
+\di(\forall \beta\leq_{1}1)(\exists i\leq \Theta(g)(1))(\overline{\beta}i\not\in T) \big]. 
+\]
+Any functional $\Theta$ satisfying $\SCF(\Theta)$ is referred to as a \emph{special fan functional}.
+\edefi
+Note that there is \emph{no unique} special fan functional, i.e.\ it is in principle incorrect to make statements about `the' special fan functional. 
+
+\medskip
+
+Secondly, we define the \emph{intuitionistic fan functional} $\Omega$ as in \cite{kohlenbach2}*{\S3} and \cite{troelstra1}*{2.6.6}.  
+\bdefi[Intuitionistic fan functional]\label{into}
+\be\tag{$\MUC(\Omega)$}
+(\forall Y^{2}) (\forall f, g\leq_{1}1)(\overline{f}\Omega(Y)=\overline{g}\Omega(Y)\notag \di Y(f)=Y(g)),   % \label{lukl3}\tag{$\textsf{\textup{MUC}}(\Phi)$}$
+\ee
+\edefi
+As to the logical strength of $(\exists \Omega^{3})\MUC(\Omega)$, the latter yields a conservative extension of $\WKL_{0}$ by the following theorem, where `$\RCA_{0}^{2}$' is just the base theory $\RCA_{0}$ formulated with function variables rather than set variables (See \cite{kohlenbach2}*{\S2}).  
+%, where all systems are introduced in \cite{kohlenbach2}*{\S2}.  
+%Recall that $\WKL$ is \emph{weak K\"onig's lemma}, i.e.\ the statement that every infinite binary tree has a path.  A proof of the following theorem may be found at the end of this section.      
+\begin{thm}\label{proto}
+The system $\RCA_{0}^{\omega}+(\exists \Omega^{3})\MUC(\Omega)$ is a conservative extension of $\RCA_{0}^{2}+\WKL$ \(for the second-order language of the latter\).  
+\end{thm}
+\begin{proof}
+A very rudimentary sketch of a proof is provided in \cite{kohlenbach2}*{\S3}. 
+A detailed proof is provided in Theorem \ref{protofinal} of the Appendix.  
+\end{proof}
+Recall that the fan theorem $\FAN$  is the classical contraposition of $\WKL$. 
+\be\tag{$\FAN$}
+(\forall T \leq_{1}1)\big[ (\forall \beta\leq_{1}1)(\exists m)(\overline{\beta}m\not \in T)\di (\exists k^{0})(\forall \beta\leq_{1}1)(\exists i\leq k)(\overline{\beta}i\not\in T) \big]. 
+\ee
+We also introduce the `effective version' of the fan theorem as follows.
+\bdefi[Effective fan theorem]
+\be\tag{$\FAN_{\ef}(h)$}
+(\forall T^{1}\leq_{1}1, g^{2})\big[ (\forall \alpha\leq_{1}1)(\overline{\alpha}g(\alpha)\not\in T)\di (\forall \beta\leq_{1}1)(\overline{\beta}h(g, T)\not\in T)   \big].
+\ee
+\edefi
+Clearly, the existence of $h$ as in the effective fan theorem implies $\FAN$ in $\RCAo$.  
+Furthermore, with a further minimum of the axiom of choice $\QFAC^{2,1}$, the latter also follows form the former.  
+We have the following theorem. 
+%The following theorem was announced earlier.   
+%\bdefi[Intuitionistic fan functional]
+%\be\tag{$\MUC(\Omega)$}
+%(\forall Y^{2}) (\forall f, g\leq_{1}1)(\overline{f}\Omega(Y)=\overline{g}\Omega(Y)\notag \di Y(f)=Y(g)),   % \label{lukl3}\tag{$\textsf{\textup{MUC}}(\Phi)$}$
+%\ee
+%\edefi
+\begin{thm}\label{kinkel}
+There are terms $s,t$ such that $\textsf{\textup{E-PA}}^{\omega}$ proves:
+\be\label{ikkeltje}
+(\forall \Omega^{3})(\MUC(\Omega)\di \SCF(t(\Omega))) \wedge (\forall \Theta)(\SCF(\Theta)\di \FAN_{\ef}(s(\Theta))).
+\ee
+\end{thm}
+\begin{proof}
+The second part of \eqref{ikkeltje} is immediate.  
+For the first part, let $\Omega$ be as in $\MUC(\Omega)$ and note that $\Theta(g)$ as in $\SCF(\Theta)$ has to provide a natural number and a finite sequence of binary sequences.
+The number $\Theta(g)(1)$ is defined as $\max_{|\sigma|=\Omega(g)\wedge \sigma\leq_{0^{*}}1}g(\sigma*00\dots)$ and the finite sequence of binary sequences $\Theta(g)(2)$
+consists of all $\tau*00\dots$ where $|\tau|=\Theta(g)(1)\wedge \tau\leq_{0^{*}}1$.  
+We now claim that for all $g^{2}$ and $T^{1}\leq_{1}1$:
+\be\label{difffff}
+ (\forall \beta\leq_{1}1)(\beta \in \Theta(g)(2)\di \overline{\beta}{g}(\beta)\not \in T)\di (\forall \gamma\leq_{1}1)(\exists i\leq \Theta(g)(1))(\overline{\gamma}i\not \in T).
+\ee
+%where the forward implication is trivial and the reverse implication follows from the definition of $\Theta$.   %as for all $\beta\leq_{1}1$, we have $\tilde{g}(\beta)=\tilde{g}(\overline{\beta}\Theta(g)(1)*00)\not \in T$.  
+Indeed, suppose the antecendent of \eqref{difffff} holds.  Now take $\gamma_{0}\leq_{1}1$, and note that $\beta_{0}=\overline{\gamma_{0}}\Theta(g)(1)*00\dots \in \Theta(g)(2)$, implying 
+$\overline{\beta_{0}}{g}(\beta_{0})\not \in T$.  But $g(\alpha)\leq \Theta(g)(1)$ for all $\alpha\leq_{1}1$, by the definition of $\Omega$, implying that $\overline{\gamma_{0}}{g}(\beta_{0})=\overline{\beta_{0}}{g}(\beta_{0})\not \in T$ by the definition of $\beta_{0}$, and the consequent of \eqref{difffff} follows.    
+%Hence, we have used the fan functional to define a functional $\Theta$ which satisfies $\SCF(\Theta)$.  
+% \eqref{difffff} for all $g^{2}$ and all $T\leq_{1}1$, implying that $(\forall g^{2})B(g, \Theta(g))$ as required.  
+\end{proof}
+As it happens, the first part of Theorem \ref{kinkel} was first proved \emph{indirectly} in \cite{samGH}*{\S3} by applying Theorem~\ref{consresultcor} to the normal form of $\NUC\di \STP$, where 
+\be\tag{$\NUC$}
+(\forall^{\st}Y^{2})(\forall f^{1}, g^{1}\leq_{1}1)(f\approx_{1}g\di Y(f)=_{0}Y(g)), 
+\ee
+i.e.\ the statement that every type two functional is nonstandard uniformly continuous on Cantor space in light of Notation \ref{equ}.  
+
+\medskip
+
+
+Furthermore, the `classical' fan functional is obtained from the intuitionistic one by restricting $Y^{2}$ in $\MUC(\Omega)$ to $Y^{2}\in C$, i.e.\ continuous as follows:
+\[
+Y^{2}\in C\equiv (\forall f^{1})(\exists N^{0})(\forall g^{1})(\overline{f}N=\overline{g}N\di Y(f)=Y(g)).  
+\]
+By combining \cite{kohlenbach4}*{Prop.\ 4.4 and 4.7}, the Turing jump functional can compute the classical fan functional (over Kohlenbach's system $\RCAo$ from \cite{kohlenbach2}*{\S2}).  
+
+\medskip
+
+In light of the previous observations regarding the classical and intuitionistic fan functionals, a special fan functional appears to be a rather weak object.     
+Looks can be deceiving, as we establish in Theorem \ref{import} in the next section that the Turing jump functional (and in fact any type two functional) cannot compute any special fan functional.
+We finish this section with a remark on the definition of the special fan functional.
+\begin{rem}\rm
+$\Phi(T, g)$ in INT and CLASS. 
+\end{rem}
+
+\subsubsection{The special fan functional and comprehension functionals}\label{tokie}
+In this section, we study the relationship between the special fan functional and comprehension functionals.  
+In particular, we show that the former cannot be computed by the \emph{Turing jump functional} (and any type two functional) defined as follows.
+\bdefi[Turing jump functional]\label{TJ}
+\be\tag{$\TJ(\varphi)$}
+(\forall f^{1})\big[(\exists n)(f(n)=0)\asa \varphi(f)=0  \big].
+\ee
+We let $(\exists^2)$ stand for $(\exists \varphi^{2})\TJ(\varphi)$, and call $\varphi$ the `Turing jump functional'. 
+\edefi
+We make our notion of `computability' precise as follows.  
+\begin{enumerate}
+\item We adopt $\ZFC$ set theory as the official metatheory for all results, unless explicitly stated otherwise.
+\item We adopt Kleene's notion of \emph{higher-order computation} as given by his nine clauses S1-S9 (See \cite{longmann}*{\S8}) as our official notion of `computable'.
+\end{enumerate}
+%The Turing jump functional is then defined as follows.    % and their basic properties.  
+With these conventions in place, we can prove the following theorem.
+\begin{thm}\label{import}
+Any functional $\Theta^{3}$ as in $\SCF(\Theta)$ is not computable in $(\exists^{2})$.   
+\end{thm}
+\begin{proof}
+Assume that $\Theta$ as in $\SCF(\Theta)$ is computable in $\varphi$ as in $\TJ(\varphi)$. 
+Let $h^{2}$ be any partial functional computable in $\varphi$ as in $\TJ(\varphi)$ and total on the class of hyperarithmetical functions, and let $g^{2}$ be the total extension of $h$.
+Then $\Theta$ applied to $g$ will yield a hyperarithmetical finite sequence $\Theta(g)(1)$.
+
+\medskip
+
+We now define $h_{0}(\alpha)$, using Gandy selection, using the `least' number $e$ such that $e$ is an index for $\alpha$ as a hyperarithmetical function in some fixed canonical indexing of the hyperarithmetical sets. By `least' we mean `of minimal ordering rank', and then of minimal numerical value among those.
+In particular, define $h_{0}(\alpha) = e + 2$ for the aforementioned $e$, and let $g_{0}$ be the associated extension discussed above.  Then $\Theta(g_{0})(1)$ consists of a  finite list $\alpha_1 , . . . , \alpha_k$ of hyperarithmetical functions, and the neighbourhoods determined by the $\overline{ \alpha_i}(g(\alpha_i))$ are not of measure 1, so they do not cover the Cantor space.
+
+\medskip
+
+However, then there is a non-well founded binary tree $T_{0}$ such that $ \overline{\alpha_i}(g_{0}(\alpha_i) \not \in T_{0}$ for all $i = 1 , . . . , k$, but there is no possible value for $\Theta(g_{0})(2)$.
+\end{proof}
+\begin{cor}\label{import2}
+Let $\varphi^{2}$ be any type two functional.   
+Any functional $\Theta^{3}$ as in $\SCF(\Theta)$ is not computable in $\varphi^{2}$.   
+\end{cor}
+\begin{proof}
+X
+\end{proof}
+We now list some well-known type two functionals which will also be used below.  
+%Clearly, the previous theorem also holds for $(\mu^{2})$ as follows:
+\emph{Feferman's search operator} $(\mu^{2})$ (See e.g.\ \cite{avi2}*{\S8}) is equivalent to $(\exists^{2})$ over Kohlenbach's system $\RCAo$ by \cite{kooltje}*{\S3}:.
+\be\tag{$\mu^{2}$}
+(\exists \mu^{2})\big[(\forall f^{1})\big( (\exists n^{0})(f(n)=0)\di f(\mu(f))=0   \big)  \big],
+\ee
+and is the functional version of $\ACA_{0}$.  The \emph{Suslin functional} and $(\mu_{1})$ (See \cite{avi1}*{\S8.4.1}, \cite{kohlenbach2}*{\S1}, and \cite{yamayamaharehare}*{\S3}) are the functional versions of $\FIVE$, and defined as: 
+\be\tag{$S^{2}$}
+(\exists S^{2})(\forall f^{1})\big[  (\exists g^{1})(\forall x^{0})(f(\overline{g}n)=0)\asa S(f)=0  \big].
+\ee
+\be\tag{$\mu_{1}$}
+(\exists \mu_{1}^{1\di 1})(\forall f^{1})\big[  (\exists g^{1})(\forall x^{0})(f(\overline{g}n)=0)\di (\forall x^{0})(f(\overline{\mu_{1}(f)}n)=0)  \big].
+\ee
+%
+%\medskip
+%
+%The following theorem sharpens the above result.
+%\begin{thm}\label{import2}
+%Any functional $\Theta$ as in $\SCF(\Theta)$ is not computable in the Suslin functional:
+%\be\tag{$S^{2}$}
+%(\exists S^{2})(\forall f^{1})\big[  (\exists g^{1})(\forall x^{0})(f(\overline{g}n)=0)\asa S(f)=0  \big].
+%\ee
+%\end{thm}
+%\begin{proof}
+%X
+%\end{proof}
+On the other hand, full second-order arithmetic suffices to compute a special fan functional, as we show now.
+\begin{thm}\label{import3}
+A functional $\Theta^{3}$ as in $\SCF(\Theta)$ can be computed from $\xi$ as in $(\mathcal{E}_{2})$: % as follows:
+\be\tag{$\mathcal{E}_{2}$}\label{hah}
+(\exists \xi^{3})(\forall Y^{2})\big[  (\exists f^{1})(Y(f)=0)\asa \xi(Y)=0  \big].
+\ee
+\end{thm}
+\begin{proof}
+We first prove the existence of a functional $\Theta$ such that $\SCF(\Theta)$ in classical set theory without choice $\textsf{ZF}$.  
+We then show how the construction can be realised as an algorithm relative to $\xi$ as in $(\E_{2})$.   %  quantification over $\N^\N$.
+ 
+ %\subsection*{Notation}
+ Let $C$ be the Cantor space $\{0,1\}^\N$  with the lexicographical ordering. If $\sigma$ is a binary finite sequence, we let $C_\sigma$ be the set of binary extensions of $\sigma$ (
+ in $C$).
+ \newline
+ We let $f,g$ with indices vary over $C$ and we let $\alpha$, $\beta$ etc. vary over the countable ordinals. We let $F$ be a fixed total functional of type 2, and our aim is to define $\Theta(F)$.
+ 
+%\subsection*{The construction}
+ By recursion on $\alpha$ we will define an increasing sequence $\{f_\alpha\}_{\alpha < \aleph_1}$ from $C$.
+ We will let $$I(\alpha) = \bigcup_{\beta \leq \alpha}C_{\bar f_\beta(F(f_\beta))}$$ and we will let 
+ 
+$$I(< \alpha) = \bigcup_{\beta < \alpha}C_{\bar f_\beta(F(f_\beta))}.$$
+We let $f_0 = \lambda x.0$.
+%
+\newline Let $\alpha > 0$. 
+\begin{itemize}
+\item If $\lambda x.1 \in I( < \alpha)$, let $f_\alpha = f_\beta$ for the first $\beta$ such that $\lambda x.1 \in C_{\bar f_\beta(F(f_\beta))}$.
+\item If not, let $f_\alpha$ be the least element not in $I(< \alpha)$.
+\end{itemize}
+By construction, the sequence of $f_\alpha$'s will be strictly increasing until we capture $\lambda x.1$, which thus must happen after a countable number of steps.
+\vspace{2mm}
+ \newline
+ Clearly, the least $\alpha$ such that $f \in I(\alpha)$ must be a successor ordinal for each $f$. Let $\alpha_0$ be this ordinal for $f = \lambda x.1$, and let $g_0$ be the greatest strict lower bound of $C_{\bar f_{\alpha_0}(F(f_{f_{\alpha_0}}))}.$
+ \newline
+ Let $\alpha_1$ be this ordinal for $f = g_0$ and let $g_1$ be the greatest strict lower bound of $C_{\bar f_{\alpha_1}(F(f_{f_{\alpha_1}}))}.$
+ \newline
+ Continue this process, defining a decreasing sequence $\alpha_0,\alpha_1, \cdots$  until $\lambda x.0$ is captured, and we have a finite cover of $C$ of neighborhoods of the form $C_{\bar f_{\alpha_i}(F(f_{\alpha_i}))}$ for $i \leq n$  for some $n$.
+ \newline
+ We then let $\Theta(F)$ have the pair of $\{f_{\alpha_i}\mid i  \leq n\}$ and $\max\{F(f_{\alpha_i})\mid i \leq n\}$ as value.
+ 
+ \medskip
+ 
+% \subsubsection*{Computing $\Theta$ from $^3E$}
+ We need far less that $^3E$ to capture this construction, but it may be difficult to isolate a simpler functional in which $\Theta$ is computable.
+ \newline
+ Using $^3E$ I would proceed as follows:
+ \begin{enumerate}
+ \item Let $WO$ be a standard $\Pi^1_1$ set of codes for the countable ordinals.
+ \item From $F$ and $^3E$ we can compute the set of ordinals of order type $\alpha_0$ of the construction.
+ \item For each of these codes, we can compute from $F$ the sequence $\{f_\beta\}_{\beta \leq \alpha_0}$, and for each of these codes, we can compute from $F$ the backtracking to $\alpha_1 , \ldots , \alpha_n$.
+ \item Since the construction only depends on the ordinals, it does not matter which code for an ordinal we use, we end up with the same value for $\Theta(F)$.
+ \item Extracting this common value is computable in $^3E$.
+ \end{enumerate}
+\end{proof}
+Finally, we show that the special fan functional is not special in the sense that there are a number of functionals with closely related `computational' properties (although the nonstandard provenance of the former arguably remains `special').  
+By way of an example, we consider the following functionals, where we write `$(\forall \alpha^{1} \in \gamma)\varphi(\alpha)$' instead of `$(\forall n^{0})\varphi(\gamma(n))$' for $\gamma^{0\di 1}$. 
+\bdefi
+Define $\ALP(\chi)$ for $\chi^{2\di 1^{*}}$ as follows:
+\[\textstyle
+(\forall g^{2})(\exists k^{0})(\forall T^{1}\leq_{1}1)\big[(\forall \alpha \in \chi(g))  (\overline{\alpha}g(\alpha)\not\in T)
+\di (\forall \alpha^{1}\leq_{1}1)(\exists i\leq k)(\overline{\alpha}i\not\in T)\big].
+\]
+%where `$T^{1}\leq_{1}1$' is meant to convey that $T$ is a binary tree, and where $1^{*}$ is the type of finite sequences of type $1$. 
+%Any functional $\zeta$ as in $\WWF(\zeta)$ is referred to as a \emph{weak weak special fan functional}.
+\edefi
+\bdefi
+Define $\BET(\iota)$ for $\iota^{(2\di (0\times (0\di 1)))}$ as follows:
+\[\textstyle
+(\forall g^{2}, T^{1}\leq_{1}1)\big[(\forall \alpha \in \iota(g)(2))  (\overline{\alpha}g(\alpha)\not\in T)
+\di  (\forall \alpha^{1}\leq_{1}1)(\exists i\leq \iota(g)(1))(\overline{\alpha}i\not\in T)\big].
+\]
+%where `$T^{1}\leq_{1}1$' is meant to convey that $T$ is a binary tree, and where $1^{*}$ is the type of finite sequences of type $1$. 
+%Any functional $\zeta$ as in $\WWF(\zeta)$ is referred to as a \emph{weak weak special fan functional}.
+\edefi
+By the following theorem, the special fan functional is `sandwiched' between these new functionals and the latter plus Feferman's search operator.  
+\begin{thm}
+There are terms $s, t, u, v$ such that $\textsf{\textup{E-PA}}^{\omega*}$ proves that\\
+$(\forall \Theta)( \ALP(u(\Theta))\leftarrow  \SCF(\Theta)\di \BET(t(\Theta)))$ and that
+\[
+(\forall \zeta, \mu)\big(    (\BET(\zeta)\wedge \MU(\mu))\di \SCF(s(\zeta, \mu)) \leftarrow (\ALP(\zeta)\wedge\MU(\mu))  \big).  % and the same for $\chi$ as in $\ALP(\chi)$. 
+\]
+\end{thm}
+\begin{proof}
+For the first part of the proof, define $t(\Theta)(g)(1):=\Theta(g)(1)$ and define $t(\Theta)(g)(2)(k)$ as $\Theta(g)(2)(k)$ for $k<|\Theta(g)(2)|$, and the zero sequence otherwise.  
+For the second part of the proof, we prove that 
+$((\exists^{\st} \iota)\BET(\iota)\wedge \paai)\di \STP$ in $\P$.  Applying Theorem \ref{consresultcor} to this implication as in Theorem \ref{nogwel} yields the required term $s$.  
+Now, for standard $\iota$ the formula $\BET(\iota)$ implies, since standard inputs yield standard outputs, that
+\[\textstyle
+(\forall^{\st} g^{2}, T^{1}\leq_{1}1)\big[(\forall \alpha \in \iota(g)(2))  (\overline{\alpha}g(\alpha)\not\in T)
+\di  (\exists^{\st}k^{0})(\forall \alpha^{1}\leq_{1}1)(\exists i\leq k)(\overline{\alpha}i\not\in T)\big].
+\]
+Thanks to $\paai$, we may replace the antecedent by $(\forall^{\st} \alpha \in \zeta(g)(2))  (\overline{\alpha}g(\alpha)\not\in T)$, 
+which is implied by $(\forall^{\st}\alpha\leq_{1}1)(\exists^{\st}n^{0})(\overline{\alpha}g(\alpha)\not\in T)$, and $\STP$ follows.  
+The analogous results for $\chi$ as in $\ALP(\chi)$ follow from the observation that the consequent of the latter is equivalent to $ (\exists k^{0}) (\forall \alpha^{0^{*}}\leq_{0^{*}}1)(\exists i\leq k)(|\alpha|\leq k \di \overline{\alpha}i\not\in T)$, to which (the contraposition of) $\paai$ may be applied.  
+\end{proof}
+\begin{cor}
+Any functional $\iota$ as in $\BET(\iota)$ \(resp.\ $\chi$ as in $\ALP(\chi)$\) is not computable in $(\exists^{2})$.
+\end{cor}
+Furthermore, the combination of $\iota$ and $\chi$ as above can compute the special fan functional, but we conjecture that neither functional \emph{alone} suffices.  
+In this way, the special fan functional can easily be `split' in two similar but independent pieces.  Such a `splitting' is apparently difficult to obtain in Friedman-Simpson Reverse Mathematics (See e.g.\ \cite{splitting} for an example).  
+
+\begin{rem}[Further ideas]\rm
+Normann: We need far less than $(\E_{2})$ to capture the construction from the proof, but it may be difficult to isolate a simpler functional in which $\Theta$ is computable.
+
+\medskip
+
+Sam: What about the following one which is the `$\Delta_{1}^{1}$' version of $(\E_{2})$
+\begin{align*}%\tag{$\mathcal{E}_{1,5}$}\label{hah2}
+(\exists \zeta^{3})(\forall Y^{2}, Z^{2})\big[ (\forall m^{0})[(\exists & f^{1})(Y(f, m)=0) \asa (\forall g^{1})(Z(g,m)\ne0)] \\
+& \di  (\forall n^{0})[(\exists f^{1})(Y(f,n)=0)\asa \zeta(Y, Z,n)=0]  \big].
+\end{align*}
+
+The above non-computability results are counterexamples to the heuristic
+\begin{center}
+\emph{First-order strength is roughly proportional to computational hardness}.  
+\end{center}
+present in the study of the computability of type one objects.
+
+\medskip
+
+Shall we call the behaviour of the (special) fan functional a `phase transition' (Andreas Weiermann coined this slogan for his work in incompleteness).  
+\end{rem}
+
+\subsection{A negative result in Nonstandard Analysis}
+%As suggested in the previous section, the special fan functional originates from Nonstandard Analysis.
+%In this section, we use the results from the previous section to prove a non-implication in Nonstandard Analysis.  
+%
+%\medskip
+In section \ref{RM}, we observed that the Big Five of RM are linearly ordered as in \eqref{linord}.  
+In this section, we show that the \emph{nonstandard} counterparts of $\FIVE$, $\ACA_{0}$, and $\WKL_{0}$ are however \emph{incomparable}.  
+Surprisingly, we make essential use of Theorem \ref{import} to establish this result, rather than taking the `usual' model-theoretic route.  
+Indeed, the fact that the full axiom \emph{Transfer} does not imply the full axiom \emph{Standard Part} is known (over various systems; see \cites{blaaskeswijsmaken, gordon2}), and is established using model-theoretic techniques.
+
+\medskip
+
+First of all, Nelson's system $\IST$ and the associated fragment $\P$ were introduced in Section \ref{base}.
+The system $\P$ includes Nelson's axiom \emph{Idealisation} (formulated in the language of finite types), but to guarantee a conservative extension of Peano arithmetic, Nelson's axiom \emph{Transfer} must be omitted, while \emph{Standard Part} is weakened to $\HAC_{\INT}$.  Indeed, the fragment of \emph{Transfer} for $\Pi_{1}^{0}$-formulas as follows  
+\be\tag{$\paai$}
+(\forall^{\st}f^{1})\big[  (\forall^{\st}n)f(n)\ne0 \di (\forall m)f(m)\ne0  \big]
+\ee
+is the nonstandard counterpart of arithmetical comprehension (actually the equivalent $\Pi_{1}^{0}$-comprehension), while the fragment of \emph{Transfer} for $\Pi_{1}^{1}$-formulas as follows  
+\be\tag{$\Paai$}
+(\forall^{\st}f^{1})\big[ (\exists g^{1})(\forall x^{0})(f(\overline{g}n)=0)\di (\exists^{\st}g^{1})(\forall x^{0})(f(\overline{g}n)=0)\big]
+\ee
+is the nonstandard counterpart of $\FIVE$. 
+The following fragment of \emph{Standard Part} is the nonstandard counterpart of weak K\"onig's lemma:
+\be\tag{$\STP$}
+(\forall \alpha^{1}\leq_{1}1)(\exists^{\st}\beta^{1}\leq_{1}1)(\alpha\approx_{1}\beta),
+\ee  
+where $\alpha\approx_{1}\beta$ is short for $(\forall^{\st}n)(\alpha(n)=_{0}\beta(n))$.  There is no deep philosophical meaning to be found in the words `nonstandard counterpart':  This is just what the principles $\STP$, $\paai$, and $\Paai$ are called in the literature (\cite{pimpson, sambon}).    
+
+\medskip
+
+Secondly, while $\FIVE\di \ACA_{0}\di \WKL_{0}$ by \eqref{linord},
+we show in Theorem \ref{nogwel} and Corollary \ref{forqu} that the associated \emph{nonstandard implications} $\paai\di \STP$ and $\Paai\di \STP$ do not hold.  As noted above, we shall establish this non-implication using Theorem \ref{import}.  
+To establish the aforementioned non-implications, we require the following theorem which provides a normal form for $\STP$ and establishes the latter's relationship with the special fan functional.  % is the functional version of $\STP$.
+\begin{thm}\label{lapdog}
+In $\P_{0}$, $\STP$ is equivalent to the following:
+\begin{align}\label{frukkklk}
+(\forall^{\st}g^{2})(\exists^{\st}w^{1^{*}})\big[(\forall T^{1}\leq_{1}1)(\exists ( \alpha^{1}\leq_{1}1,  &~k^{0}) \in w)\big((\overline{\alpha}g(\alpha)\not\in T)\\
+&\di(\forall \beta\leq_{1}1)(\exists i\leq k)(\overline{\beta}i\not\in T) \big)\big]. \notag
+\end{align}  
+Furthermore, $\P_{0}$ proves $(\exists^{\st}\Theta)\SCF(\Theta)\di \STP$.
+\end{thm}
+\begin{proof}  
+First of all, $\STP$ is easily seen to be equivalent to 
+\begin{align}\label{fanns}
+(\forall T^{1}\leq_{1}1)\big[(\forall^{\st}n)(\exists \beta^{0})&(|\beta|=n \wedge \beta\in T ) \di (\exists^{\st}\alpha^{1}\leq_{1}1)(\forall^{\st}n^{0})(\overline{\alpha}n\in T)   \big],
+\end{align}
+and this equivalence may also be found in \cite{samGH}*{Theorem 3.2}.  For completeness, we first prove the equivalence $\STP\asa \eqref{fanns}$.
+Assume $\STP$ and apply overspill to $(\forall^{\st}n)(\exists \beta^{0})(|\beta|=n \wedge \beta\in T )$ to obtain $\beta_{0}^{0}\in T$ with nonstandard length $|\beta_{0}|$.  
+Now apply $\STP$ to $\beta^{1}:=\beta_{0}*00\dots$ to obtain a \emph{standard} $\alpha^{1}\leq_{1}1$ such that $\alpha\approx_{1}\beta$ and hence $(\forall^{\st}n)(\overline{\alpha}n\in T)$.  
+For the reverse direction, let $f^{1}$ be a binary sequence, and define a binary tree $T_{f}$ which contains all initial segments of $f$.  
+Now apply \eqref{fanns} for $T=T_{f}$ to obtain $\STP$.    
+
+\medskip
+
+% and Theorem \ref{agda} below.
+For the implication \eqref{frukkklk}$\di$\eqref{fanns}, note that \eqref{frukkklk} implies for all standard $g^{2}$
+\begin{align}\label{frukkklk2}
+(\forall T^{1}\leq_{1}1)(\exists^{\st} ( \alpha^{1}\leq_{1}1,  &~k^{0})\big[(\overline{\alpha}g(\alpha)\not\in T)
+\di(\forall \beta\leq_{1}1)(\exists i\leq k)(\overline{\beta}i\not\in T) \big], 
+\end{align}  
+which in turn yields, by bringing all standard quantifiers inside again, that:
+\begin{align}\label{frukkklk3}
+(\forall T\leq_{1}1) \big[(\exists^{\st}g^{2})(\forall^{\st}\alpha \leq_{1}1)(\overline{\alpha}g(\alpha)\not\in T)\di(\exists^{\st}k)(\forall \beta\leq_{1}1)(\overline{\beta}k\not\in T) \big], 
+\end{align}  
+To obtain \eqref{fanns} from \eqref{frukkklk3}, apply $\HAC_{\INT}$ to $(\forall^{\st}\alpha^{1}\leq_{1}1)(\exists^{\st}n)(\overline{\alpha}n\not\in T)$ to obtain standard $\Psi^{1\di 0^{*}}$ such that  
+$(\forall^{\st}\alpha^{1}\leq_{1}1)(\exists n\in \Psi(\alpha))(\overline{\alpha}n\not\in T)$, and defining $g(\alpha):=\max_{i<|\Psi|}\Psi(\alpha)(i)$ we obtain $g$ as in the antecedent of \eqref{frukkklk3}.  The previous implies 
+\be\label{gundark}
+(\forall T^{1}\leq_{1}1) \big[(\forall^{\st}\alpha^{1}\leq_{1}1)(\exists^{\st}n)(\overline{\alpha}n\not\in T)\di (\exists^{\st}k)(\forall \beta\leq_{1}1)(\overline{\beta}i\not\in T) \big], 
+\ee
+which is the contraposition of \eqref{fanns}, using classical logic.  For the implication $\eqref{fanns}  \di \eqref{frukkklk}$, consider the contraposition of \eqref{fanns}, i.e.\ \eqref{gundark}, and note that the latter implies \eqref{frukkklk3}.  Now push all standard quantifiers outside as follows:
+\[
+(\forall^{\st}g^{2})(\forall T^{1}\leq_{1}1)(\exists^{\st} ( \alpha^{1}\leq_{1}1, ~k^{0})\big[(\overline{\alpha}g(\alpha)\not\in T)
+\di(\forall \beta\leq_{1}1)(\exists i\leq k)(\overline{\beta}i\not\in T) \big], 
+\]
+and applying idealisation \textsf{I} yields \eqref{frukkklk}.  The equivalence involving the latter also immediately establishes the second part of the theorem.    
+\end{proof}
+In light of the previous theorem, the `nonstandard' provenance of the special fan functional becomes clear.  This functional was actually discovered during the study of the Gandy-Hyland functional in Nonstandard Analysis in \cite{samGH}*{\S3-4}.  
+
+\medskip
+
+Thirdly, we establish the aforementioned non-implications and related results. 
+\begin{thm}\label{nogwel}
+The system $\P+\paai$ does not prove $\STP$.  
+\end{thm}
+\begin{proof}
+Suppose $\P+\paai\vdash \STP$ and note that $\paai$ is equivalent to 
+\be\label{trakke}
+(\forall^{\st}f^{1})(\exists^{\st}n^{0})\big[ (\exists m)f(m)=0 \di (\exists i\leq n)f(i)=0  \big],
+\ee
+by contraposition.  Then the implication `$\paai\di \STP$' becomes
+\be\label{jaj}
+(\forall^{\st}f^{1})(\exists^{\st}n^{0})A(f,n)\di (\forall^{\st}g^{2})(\exists^{\st}w^{1^{*}})B(g,w)
+\ee
+where $B$ is the formula in square brackets in \eqref{frukkklk} and where $A$ is the formula in square brackets in \eqref{trakke}.  
+We may strengthen the antecedent of \eqref{jaj} as follows:
+\be\label{jaj2}
+(\forall^{\st} h^{2})\big[(\forall^{\st}f^{1})A(f,h(f))\di (\forall^{\st}g^{2})(\exists^{\st}w^{1^{*}})B(g,w)\big], 
+\ee  
+In turn, we may strengthen the antecedent of \eqref{jaj2} as follows:
+\be\label{jaj3}
+(\forall^{\st} h^{2})\big[(\forall f^{1})A(f,h(f))\di (\forall^{\st}g^{2})(\exists^{\st}w^{1^{*}})B(g,w)\big], 
+\ee  
+Bringing out the standard quantifiers, we obtain
+\be\label{jaj4}
+(\forall^{\st} h^{2}, g^{2})(\exists^{\st}w^{1^{*}})\big[(\forall f^{1})A(f,h(f))\di B(g,w)\big], 
+\ee  
+and applying Corollary \ref{consresultcor} to `$\P\vdash \eqref{jaj4}$', we obtain a term $t$ such that         
+\be\label{jaj5}
+(\forall h^{2}, g^{2})(\exists w^{1^{*}}\in t(h,g))\big[(\forall f^{1})A(f,h(f))\di B(g,w)\big], 
+\ee  
+is provable in $\textsf{E-PA}^{\omega*}$.  Clearly, the antecedent of \eqref{jaj5} expresses that $h$ is Feferman's search functional $(\mu^{2})$.  
+Furthermore, it is straightforward to define $\Theta$ as in $\SCF(\Theta)$ in terms of $t(h,\cdot)$;  However, this implies that the special fan functional is computable in $(\mu^{2})$ via a term from G\"odel's $\textsf{T}$.  This contradicts Corollary \ref{import2}, and we are done.   
+\end{proof}
+\begin{cor}\label{nogwel2}
+The system $\P+\WKL^{\st}$ does not prove $\STP$.  The same holds for $\P+\varphi+\paai$, where $\varphi$ is any internal sentence such that the latter system is consistent.  
+\end{cor}
+\begin{proof}
+For the first part, note that $\paai\di (\mu^{2})^{\st}\di \WKL^{\st}$ where the second implication follows from the usual proof of $\ACA_{0}\di \WKL_{0}$ relative to `st', and where the first implication 
+follows from applying $\HAC_{\INT}$ to \eqref{trakke} (and taking the maximum of all outputs of the resulting functional).  
+  
+\medskip  
+  
+For the second part, suppose $\P+\varphi+\paai\vdash \STP$ and apply Theorem \ref{consresultcor} to $\P+\varphi+\paai\vdash \eqref{frukkklk}$ to obtain a term of G\"odel's \textsf{T} which computes the special fan functional in terms of the Turing jump functional.  This contradiction immediately yields the second part of the theorem.      
+\end{proof}
+%Note that one can replace $\WKL$ in the second part by \emph{any true internal sentence}.  
+\begin{cor}\label{forqu}
+The system $\P+\Paai$ does not prove $\STP$.  
+\end{cor}
+\begin{proof}
+Follows from Corolllary \ref{import2} in the same way as the theorem.  By way of a sketch, suppose that $P\vdash \Paai\di \STP$.  Then  
+\end{proof}
+In the same way, Corollary \ref{import2} yields that \emph{Transfer} limited to $\Pi_{k}^{1}$-formulas cannot imply $\STP$.  
+Indeed, the `comprehension functional' for $\Pi_{1}^{k}$-formulas has type two, and hence does not compute the special fan functional by Corollary \ref{import2}. 
+
+\medskip
+
+Despite the above negative results, we have the following conservation result.  % where $\RCA_{0}^{2}$ is just $\RCA_{0}$ formulated in the language of finite types (See \cite{kohlenbach2}*{\S2} for the exact definition).  
+\begin{thm}\label{conske}
+The systems $\RCA^{\omega}_{0}+(\exists \Theta)\SCF(\Theta)$ and $\P_{0}+\STP$ are conservative over $\RCA_{0}^{2}+\WKL$ for sentences in the latter's second-order language.  
+\end{thm}    
+\begin{proof}
+For the first system, by \cite{samGH}*{Cor.\ 3.4} and Theorem \ref{kinkel}, the special fan functional can be defined in terms of $\Phi$ as in $\MUC(\Phi)$.  
+By Theorem \ref{protofinal}, the first conservation result is now immediate.  For the second conservation result, let $\varphi$ be a (necessarily internal) sentence in the language of $\RCA_{0}^{2}+\WKL$.  If $\P_{0}+\STP\vdash \varphi$, then $\P_{0}\vdash (\exists^{\st}\Theta)\SCF(\Theta)\di \varphi$ by the second part of Theorem \ref{lapdog}.  Applying Corollary \ref{consresultcor} to $\P_{0}\vdash (\forall^{\st}\Theta)(\SCF(\Theta)\di \varphi)$ yields $\RCA_{0}^{\omega}\vdash (\forall \Theta)(\SCF(\Theta)\di \varphi) $.  % and we are done.
+\end{proof}
+Finally, we also establish the `reverse' direction of the fact that Theorem \ref{import} gives rise to Theorem \ref{nogwel}.  
+\begin{thm}
+Suppose $\P+\varphi\not\vdash \paai\di \STP$ for some internal sentence $\varphi$.  Then for every term $t$ from G\"odel's \textsf{\textup{T}},  $\textsf{\textup{E-PA}}^{\omega*}+\varphi$ does not prove that $t$ expresses a special fan functional in terms of the special fan functional.
+\end{thm}
+\begin{proof}
+X
+\end{proof}
+
+\subsection{Compactness}
+
+
+
+Anti-specker from $(\forall x\in [0,1])(\exists^{\st}y)(x\approx y)$
+
+
+\medskip
+
+NSA and INT share notion of compactness!  
+
+\medskip
+
+
+\medskip\newpage
+
+One of the various definitions of compactness states that `If a point $z$ is bounded away from a compact space $X$, $z$ is uniformly bounded away from $X$'.  
+We consider the following version of this kind of compactness where $\kappa^{2\di (0\times 1^{*})}$ provides the uniform bound (namely $\kappa(g)(1)$) for $z$ and the unit interval, and a finite sequence of reals in the unit interval (namely $\kappa(g)(2)=(y_{0}, y_{1}, \dots, y_{k})$) which have to be bounded away from $z$ as given by $g$.   
+%for which have to be bounded away from $z$.  
+\begin{align}\textstyle
+(\forall g^{2}, z\in \R)
+\Big[\big[ \big(\forall y\in ( \kappa(g)(2)\cap [0,1])\big)&\textstyle (|y-z|>_{\R} \frac{1}{g(y)})\tag{$\textsf{COMP}([0,1], \kappa)$} \label{kalkuttttt2}\\
+&\textstyle\di (\forall x\in [0,1])(|x-z|>_{\R}\frac{1}{\kappa(g)(1)})   \big]\Big],\notag
+\end{align}
+
+
+%In light of the previous theorem, the existence of the special fan functional is not really stronger than $\WKL_{0}$.  
+%In conclusion, we have introduced the \emph{special fan functional}, inspired by {\STP}, and \eqref{frukkklk} in particular.  
+%This functional turned out to be not computable in $(\exists^{2})$, leading to the non-implication $\paai\not\di\STP$, which is a part of the folklore of Nonstandard Analysis.  
+%
+\subsection{A special case of the special fan functional}
+In this section, we consider the principle \emph{weak weak K\"onig's lemma}, $\WWKL$ for short, first introduced in \cite{yussie} and defined as in Definition \ref{leipi}.
+We shall study the nonstandard counterpart of $\WWKL$ as in Definition \ref{leipi2}, and the associated weak version of the special fan functional.  
+
+\medskip
+
+First of all, we have the following definitions.  
+\bdefi[Weak weak K\"onig's lemma]\label{leipi}~
+\begin{enumerate}
+\item For a binary tree, define $\mu(T):=\lim_{n\di \infty}\frac{\{\sigma \in T: |\sigma|=n    \}}{2^{n}}$.
+\item For a binary tree $T$, define `$\mu(T)>_{\R}a^{1}$' as $(\exists k^{0})(\forall n^{0})\big(\frac{\{\sigma \in T: |\sigma|=n    \}}{2^{n}}\geq a+\frac{1}{k}\big)$.
+\item We define $\WWKL$ as 
+%\be\tag{$\WWKL$}\label{WWKL}
+\[
+(\forall T \leq_{1}1)\big[ \mu(T)>_{\R}0\di (\exists \beta\leq_{1}1)(\forall m)(\overline{\beta}m\in T) \big],
+\]
+%\ee
+\item Define $\WFAN$ as the classical contraposition of $\WWKL$.  
+\end{enumerate}     
+\edefi
+%Note that the formula `$\mu(T)>_{\R} a$' makes sense even when the limit $\mu(T)$ does not exist.  
+Although $\WWKL$ is not part of the `Big Five' systems of RM, there are \emph{some} equivalences involving the former (\cite{yussie, sayo, yuppie, simpson2}).    
+The nonstandard counterpart of $\WWKL$ was first introduced in \cite{kei1} as follows:  
+\bdefi[Nonstandard $\WWKL$]\label{leipi2}~
+Let $T$ be a binary tree.  
+\begin{enumerate}
+%\item For a binary tree, define $\mu(T):=\lim_{n\di \infty}\frac{\{\sigma \in T: |\sigma|=n    \}}{2^{n}}$.
+\item Define `$\mu(T)\gg a^{1}$' as $(\exists^{\st} k^{0})(\forall^{\st} n^{0})\big(\frac{\{\sigma \in T: |\sigma|=n    \}}{2^{n}}\geq a+\frac{1}{k}\big)$.
+\item Define `$\mu(T)\approx 0$' as $(\forall^{\st} k^{0})(\exists^{\st} n^{0})\big(\frac{\{\sigma \in T: |\sigma|=n    \}}{2^{n}}< \frac{1}{k}\big)$.
+\item Define the `Loeb measure of $T$' as $L_{N}(T):=\frac{\{\sigma \in T: |\sigma|=N   \}}{2^{N}}$.
+\item Define $\LMP$ as 
+%\be\tag{$\WWKL$}\label{WWKL}
+\be\label{fanzzz}
+(\forall   T \leq_{1}1)\big[  (\exists N\in \Omega)(L_{N}(T)\gg 0) \di (\exists^{\st} \beta\leq_{1}1)(\forall^{\st}n)(\overline{\beta}n\in T)\big].
+%(forall T \leq_{1}1)\big[ \mu(T)>_{\R}0\di (\exists \beta\leq_{1}1)(\forall m)(\overline{\beta}m\in T) \big],
+\ee
+
+\end{enumerate}     
+\edefi
+Clearly, $\WWKL$ and $\LMP$ are weakenings of $\WKL$ and $\STP$.  Similarly, we introduce the following weak version of the special fan functional. 
+\bdefi[Weak special fan functional] 
+We define $\WCF(\Lambda)$ for $\Lambda^{(2\di (1\times 1^{*}))}$:
+\[\textstyle
+(\forall k^{0},g^{2}, T^{1}\leq_{1}1)\big[(\forall \alpha \in \Lambda(g,k)(2))  (\overline{\alpha}g(\alpha)\not\in T)
+\di   (\exists n\leq\Lambda(g,k)(1) ) (L_{n}(T)\leq\frac{1}{k})\big].
+\]
+%where `$T^{1}\leq_{1}1$' is meant to convey that $T$ is a binary tree, and where $1^{*}$ is the type of finite sequences of type $1$. 
+Any functional $\Lambda$ satisfying $\WCF(\Lambda)$ is referred to as a \emph{weak special fan functional}.
+\edefi
+
+We first obtain a normal form for $\LMP$ as follows.  
+\begin{thm}\label{lapdoc}
+In $\P_{0}$, the principle $\LMP$ is equivalent to:
+\begin{align}\label{w2}\textstyle
+(\forall^{\st}g^{2},k^{0})&(\exists^{\st}w^{1^{*}})\\
+&\textstyle\notag\big[(\forall T\leq_{1}1)(\exists ( \alpha\leq_{1}1, n) \in w)\big(\overline{\alpha}g(\alpha)\not\in T\di L_{n}(T)\leq\frac1k\big)\big].
+%&\di(\forall \beta\leq_{1}1)(\exists i\leq k)(\overline{\beta}i\not\in T) \big)\big]. \notag
+\end{align}  
+Furthermore, $\P_{0}$ proves $(\exists^{\st} \Lambda)\WCF(\Lambda)\di \LMP$.  
+%In $\RCAO$, $\STP\di \LMP\di \WWKL^{\st}$ and $\LMP\di \WWKL_{\ns}$.  
+\end{thm}
+\begin{proof}
+Analogous to the proof of Theorem \ref{lapdog}. 
+\end{proof}
+We have the following expected theorem.
+\begin{thm}\label{import22}
+Any functional $\Lambda^{3}$ as in $\WCF(\Lambda)$ is not computable in $(\exists^{2})$ \(or any type two functional\).   
+\end{thm}
+\begin{proof}
+Analogous to the proof of Theorem \ref{import}.  In fact, the only required modification is that tree $T_{0}$ in the proof of the latter just needs to satisfy $\mu(T)>_{\R}0$.  
+\end{proof}
+ \begin{cor}
+The system $\P+\paai+\WWKL^{\st}$ does not prove $\LMP$.  
+\end{cor}
+\begin{proof}
+Similar to Theorem \ref{nogwel}; note that $\paai\di (\exists^{2})^{\st}\di \WWKL^{\st}$.
+\end{proof}
+As to the logical strength of $\WCF(\Lambda)$, we will establish that the latter yields a conservative extension of $\WWKL$, similar to Theorems \ref{proto} and \ref{kinkel}.  
+To this end, consider the following uniform and nonstandard principles.  
+\be\tag{$\PUC(\kappa)$}\textstyle
+(\forall Y^{2},k^{0})(\forall n\geq \kappa(Y)(k))\big( \frac{| \{ \tau\leq_{0^{*}}1 : |\tau|=n\wedge Y(\hat{\tau})> n  \}   |}{2^{n}}   \leq\frac{1}{k}   \big),   % 
+%(\forall Y^{2},k^{0})(\forall n\geq \kappa(Y)(k))\big( \frac{| \{ \tau\leq_{0^{*}}1 : (\exists \rho\leq_{0^{*}} 1)(|\rho|,|\tau|=n\wedge Y(\hat{\tau})\ne Y(\hat{\rho}) )  \}   |}{2^{n}}   \leq\frac{1}{2^{k}}   \big),   % 
+%\label{lukl3}\tag{$\textsf{\textup{MUC}}(\Phi)$}$
+\ee
+\be\tag{$\PUC_{\ns}$}\textstyle
+(\forall^{\st} Y^{2})(\forall N\in \Omega)\big( \frac{| \{ \tau\leq_{0^{*}}1 : |\tau|=N\wedge Y(\hat{\tau})>N \}   |}{2^{N}}  \approx 0  \big),   % \label{lukl3}\tag{$\textsf{\textup{MUC}}(\Phi)$}$
+\ee
+where $\hat{\sigma}:=\sigma*00\dots$ for a finite sequence $\sigma$.  
+Intuitively speaking, $\PUC_{\ns}$ expresses that the probability that $Y$ is nonstandard at some sequence is infinitesimal.  
+We refer to $\kappa$ as in $\PUC(\kappa)$ as the \emph{weak intuitionistic fan functional}.  
+
+\medskip
+   
+We have the following results similar to Theorems \ref{proto} and \ref{kinkel} . % where all systems are introduced in \cite{kohlenbach2}*{\S2}.  
+\begin{thm}\label{proto2}
+The system $\RCA_{0}^{\omega}+(\exists \kappa^{3})\PUC(\kappa)$ is a conservative extension of $\RCA_{0}^{2}+\WWKL$ \(for the latter's second-order language\).   
+\end{thm}
+\begin{proof}
+A proof may be found in Theorem \ref{photon} of the Appendix. 
+\end{proof}
+\begin{thm}
+The system $\P_{0}$ proves $\PUC_{\ns}\di \LMP$.   From this proof, a term $t$ can be extracted such that $\RCAo$ proves $(\forall \kappa)\big(\PUC(\kappa)\di \WCF(t(\kappa))\big)$.
+\end{thm}
+\begin{proof}
+For the first part, consider the contraposition of $\LMP$ as follows:
+\[
+(\forall   T \leq_{1}1)\big[  (\forall^{\st} \beta\leq_{1}1)(\exists^{\st}n)(\overline{\beta}n\not\in T)\di  (\forall N\in \Omega)(L_{N}(T)\approx 0) \big].
+\]
+If the antecedent $(\forall^{\st} \beta\leq_{1}1)(\exists^{\st}n)(\overline{\beta}n\not\in T)$ holds, apply $\HAC_{\INT}$ to obtain standard $Y^{2}$ such that 
+$(\forall^{\st} \beta\leq_{1}1)(\exists n\leq Y(\beta) )(\overline{\beta}n\not\in T)$.  By $\PUC_{\ns}$, we have that $ \frac{1}{2^{N}}{| \{ \tau\leq_{0^{*}}1 : |\tau|=N\wedge Y(\hat{\tau})>N \}   |}  \approx 0  $ for nonstandard $N$.  By definition, we also have the following for nonstandard $N$:
+\[\textstyle
+1\approx  \frac{| \{ \tau\leq_{0^{*}}1 : |\tau|=N\wedge Y(\hat{\tau})\leq N \}   |}{2^{N}}  \leq   \frac{| \{ \tau\leq_{0^{*}}1 : |\tau|=N\wedge  \tau \not  \in T \}   |}{2^{N}}=1-L_{N}(T), 
+\]
+which yields that $L_{N}(T)\approx 0$, and $\LMP$ follows.  For the second part of the proof, note that $\LMP$ has an equivalent normal form \eqref{w2}, while an (equivalent) normal form for $\PUC_{\ns}$ is as follows:
+\be\textstyle\label{dz}
+(\forall^{\st} Y^{2}, k^{0})(\exists^{\st}M^{0})(\forall N\geq M)\big( \frac{| \{ \tau\leq_{0^{*}}1 : |\tau|=N\wedge Y(\hat{\tau})>N \}   |}{2^{N}}  \leq \frac{1}{{k}}  \big),   % \label{lukl3}\tag{$\textsf{\textup{MUC}}(\Phi)$}$
+\ee
+which one easily obtains using underspill.  Now proceed as in the proof of Theorem~\ref{nogwel} to obtain the relative computability result from the theorem.  In particular, bring $\eqref{w2}\di \eqref{dz}$ into normal form as in the aforementioned proof and apply Theorem \ref{consresultcor} to obtain the desired term.  
+\end{proof}
+The nonstandard proof in the theorem is rather trivial.  We have the following immediate corollary.  
+\begin{cor}\label{proto3}
+The systems $\RCA_{0}^{\omega}+(\exists \Lambda^{3})\WCF(\Lambda)$ and $\P_{0}+\LMP$ are conservative extensions of $\RCA_{0}^{2}+\WWKL$ \(for the latter's second-order language\).  
+\end{cor}
+
+The following corollary establishes the nonstandard version of the non-implication $\WWKL\not\di \WKL$, which was first proved in \cite{yussie}.  
+ \begin{cor}
+%For a given term $t$ of G\"odel's $\textsf{\textup{T}}$, $\textsf{\textup{E-PRA}}^{\omega*}$ does not prove $(\forall \Lambda)(\WCF(\Lambda)\di \SCF(t(\Lambda)))$.  
+The system $\P_{0}+\LMP$ does not prove $\STP$.  
+\end{cor}
+\begin{proof}
+We proceed similar to Theorem \ref{nogwel}.   Suppose $\P+\LMP\vdash \STP$;  in the same way as for the aforementioned theorem,
+we obtain some term $t$ such that $\RCAo$ proves $(\forall \Lambda)(\WCF(\Lambda)\di \SCF(t(\Lambda)))$.  % in $\textsf{E-PA}^{\omega*}$ for some term $t$.   
+In particular $\RCAo+(\exists \Lambda)\WCF(\Lambda)$ proves $(\exists \Theta)\SCF(\Theta)$.
+Since $(\exists \Theta)\SCF(\Theta)\di \WKL$ over $\RCAo$, we have that $\RCAo+(\exists \Lambda)\WCF(\Lambda)$ proves $\WKL$, contradicting Corollary \ref{proto3}.
+\end{proof}
+The following corollary is now straightforward.
+ \begin{cor}
+For any term $t$ of G\"odel's $\textsf{\textup{T}}$, $\textsf{\textup{E-PA}}^{\omega*}\not\vdash(\forall \Lambda)(\WCF(\Lambda)\di \SCF(t(\Lambda)))$.  
+\end{cor}
+The following theorem generalises the previous result.
+\begin{thm}\label{import24}
+Any $\Theta^{3}$ as in $\SCF(\Theta)$ is not computable in $\Lambda$ such that $\WCF(\Lambda)$.   
+\end{thm}
+\begin{proof}
+?
+\end{proof}
+
+Finally, we discuss a version of the weak special fan functional more similar to $\WWKL$.  To bring out the similarity to the latter, we use write `$(\forall \alpha^{1} \in \gamma)\varphi(\alpha)$' instead of `$(\forall n^{0})\varphi(\gamma(n))$' for $\gamma^{0\di 1}$. 
+\bdefi[Weak weak special fan functional] 
+Define $\WWF(\zeta)$ for $\zeta^{(2\di (1\times (0\di 1)))}$:
+\[\textstyle
+(\forall g^{2}, T^{1}\leq_{1}1)\big[(\forall \alpha \in \zeta(g)(2))  (\overline{\alpha}g(\alpha)\not\in T)
+\di   (\forall k^{0})(\exists n\leq\zeta(g)(1)(k) ) (L_{n}(T)\leq\frac{1}{k})\big].
+\]
+%where `$T^{1}\leq_{1}1$' is meant to convey that $T$ is a binary tree, and where $1^{*}$ is the type of finite sequences of type $1$. 
+Any functional $\zeta$ as in $\WWF(\zeta)$ is referred to as a \emph{weak weak special fan functional}.
+\edefi
+\begin{thm}
+There are terms $s, t$ such that $\textsf{\textup{E-PA}}^{\omega*}$ proves $(\forall \Lambda)(\WCF(\Lambda)\di \WWF(t(\Lambda)))$ 
+and $(\forall \zeta, \mu)\big((\WWF(\zeta)\wedge \MU(\mu))\di \WCF(s(\zeta,\mu))\big)$. 
+\end{thm}
+\begin{proof}
+For the first part of the proof, define $t(\Lambda)(g)(1):=(\lambda k)\Lambda(g,k)(1)$ and $t(\Lambda)(g)(2):= (\lambda k)\Lambda(g,k)(2)$.  For the second part of the proof, we prove that 
+$((\exists^{\st} \zeta)\WWF(\zeta)\wedge \paai)\di \LMP$ in $\P$.  Applying Theorem \ref{consresultcor} to this implication as in Theorem \ref{nogwel} yields the required term $s$.  
+Now, for standard $\zeta$ the formula $\WWF(\zeta)$ implies, since standard inputs yield standard outputs, that
+\[\textstyle
+(\forall^{\st} g^{2})(\forall T^{1}\leq_{1}1)\big[(\forall \alpha \in \zeta(g)(2))  (\overline{\alpha}g(\alpha)\not\in T)
+\di   (\forall^{\st} k^{0})(\exists^{\st} n ) (L_{n}(T)\leq\frac{1}{k})\big].
+\]
+Thanks to $\paai$, we may replace the antecedent by $(\forall^{\st} \alpha \in \zeta(g)(2))  (\overline{\alpha}g(\alpha)\not\in T)$, 
+which is implied by $(\forall^{\st}\alpha\leq_{1}1)(\exists^{\st}n^{0})(\overline{\alpha}g(\alpha)\not\in T)$, and $\LMP$ follows.   
+\end{proof}
+
+TEST
+
+\appendix
+
+\section{Conservation results}\label{conssec}
+
+In this section, we provide proof for the conservation results in Theorems \ref{proto} and~\ref{proto2}.  
+To this end, we require some definitions, starting with the notion of \emph{associate} (called `code' in Reverse Mathematics; see \cite{kohlenbach4}*{\S4}).  
+\bnota
+It is customary to define $\alpha(\sigma)$ for $\alpha^{1}$ and $\sigma^{0^{*}}$ by $\alpha(\pi(\sigma))$ where $\pi^{0^{*}\di 0}$ is some fixed function coding finite sequences into numbers.  Similarly, we define $\tau(\sigma)$ for $\tau^{0^{*}},\sigma^{0^{*}}$ as $1+\tau(\pi(\sigma))$ if $\pi(\sigma)<|\sigma|$, and zero otherwise.  
+\enota
+\bdefi[Associate of a continuous functional]
+The sequence $\alpha^{1}$ is an \emph{associate} for the continuous type two functional $Y^{2}$ if
+\begin{enumerate} 
+\item $(\forall \beta^{1})(\exists n)\big(\alpha(\overline{\beta}n)>0\big)$,
+\item $(\forall \beta^{1}, m^{0})(  \alpha(\overline{\beta}m)>0\di Y(\beta)+1=\alpha(\overline{\beta}n))$.
+\end{enumerate}
+\edefi
+We also define the notion of associate independently, i.e.\ without referring to the functional it is representing.  
+\bdefi[Associate]\label{wass}
+The sequence $\alpha^{1}$ is an \emph{associate} if 
+\begin{enumerate} 
+\item $(\forall \beta^{1})(\exists n)\big(\alpha(\overline{\beta}n)>0\big)$,
+\item $(\forall \sigma_{0}^{0^{*}}, \sigma_{1}^{0^{*}})(\alpha({\sigma_{0}})>0 \wedge \sigma_{0}\preceq \sigma_{1} \di \alpha({\sigma_{0}})=_{0}\alpha(\sigma_{1}) )   $.
+\end{enumerate}
+\edefi
+Note that $\sigma\preceq\tau$ if $|\sigma|\leq |\tau|\wedge (\forall n<|\sigma|)(\sigma(n)=\tau(n))$, i.e.\ $\sigma$ is an initial segment of $\tau$.  
+The second condition is also referred to as $\alpha$ being a `neighbourhood function'.  
+
+\begin{thm}\label{protofinal}
+The system $\RCA_{0}^{\omega}+(\exists \Omega^{3})\MUC(\Omega)$ is a conservative extension of $\RCA_{0}^{2}+\WKL$.  
+\end{thm}
+\begin{proof}
+The theorem is listed in \cite{kohlenbach2}*{Prop.\ 3.15} and Kohlenbach states that for its proof, one can adapt the proof of \cite{troelstra1}*{Theorem 2.6.6, p.\ 141}.  
+We discuss the latt`er proo'f and its modification in more detail.  %We focus on intuitive understanding rather than technical detail.    
+
+\medskip
+
+Now, \cite{troelstra1}*{Theorem 2.6.6} essentially states that every model $\mathcal{U}$ of the `full' fan theorem can be extended to a model $\textsf{ECF}(\mathcal{U})$ which includes a fan functional as in $\MUC(\Omega)$.  % where $\Omega(Y)$ is the least point of uniform continuity.  
+The `full' fan theorem is an intuitionistic principle defined as follows (See \cite{troelstra1}*{1.9.24}):  For every formula $A$, we have that
+\[
+(\forall \alpha\leq_{1}1)(\exists x^{0})A(\alpha, x)\di (\exists z^{0})(\forall \alpha^{1}\leq_{1}1)(\exists y^{0} )(\forall\beta\leq_{1}1)(\overline{\alpha}z=_{0}\overline{\beta}z\di A(\beta, y)).  
+\]
+As an aside, the `full' fan theorem implies\footnote{Take $A(\alpha, n)$ to be $\overline{\alpha}n\not\in T$ for a binary tree $T$, and $\FAN$ follows.} $\FAN$, i.e.\ the classical contraposition of $\WKL$, but contradicts classical mathematics\footnote{Take $A(\alpha, n)$ to be $(\forall \gamma\leq_{1}1)(\overline{\alpha}n=\overline{\beta}n\di Y(\alpha)=Y(\beta))$ for any $Y^{2}$, and note that all type two functionals are thus continuous on Cantor space.}.  
+
+\medskip
+
+From the proofs of \cite{troelstra1}*{Theorems~2.6.4 and~2.6.6}, it is clear that the initial model $\mathcal{U}$ only needs to satisfy $\FAN$, the classical contraposition of $\WKL$, and \emph{not the `full' fan theorem}.  
+In paticular, any model $\mathcal{U}$ satisfying $\FAN$ can be extended to a model satisfying the existence of a fan functional;  This sketch is the conceptual core of the proof of Theorem \ref{proto}.  
+
+\medskip
+
+Secondly, we discuss \emph{how} the fan functional is represented in $\textsf{ECF}(\mathcal{U})$.  For an associate $\alpha^{1}$, $(\forall \beta\leq_{1}1)(\exists n^{0})(\alpha(\overline{\beta}n)>0)$ implies $(\exists k^{0})(\forall \beta\leq_{1}1)(\exists n^{0}\leq k)(\alpha(\overline{\beta}n)>0)$ by $\FAN$, and hence a fan functional $\varphi_{\textup{uc}}$ can be defined as:
+\[
+\varphi_{\textup{uc}}(\alpha):=(\mu k^{0})(\forall \beta\leq_{1}1)(\exists n^{0}\leq k)(\alpha(\overline{\beta}n)>0).
+\]
+It remains to be shown that $\varphi_{\textup{uc}}$ is represented by an object in $\textsf{ECF}(\mathcal{U})$.  
+This representation is called $[\varphi_{\textup{uc}}]'$ in the proof of \cite{troelstra1}*{Theorem 2.6.4} and defined as:  
+%
+\[
+[\varphi_{\textup{uc}}]'(\sigma^{0^{*}}):=
+(\mu m\leq z)(\forall \tau^{0^{*}}, \rho^{0^{*}}\leq_{0^{*}}1)\big((|\tau|=|\rho|=z ~\wedge~ \overline{\tau}m=\overline{\rho}m)\di \sigma(\tau)=\sigma(\rho)>0 \big)
+\]
+in case $(\exists k \leq |\sigma|)(\forall \theta^{0^{*}}\leq_{0^{*}}1)(|\theta|=k\di \sigma(\theta)>0)$ and $z$ is the least such number; otherwise, the number $[\varphi_{\textup{uc}}]'(\sigma^{0^{*}})$ is defined as zero.  Finally, it is straightforward to verify that $[\varphi_{\textup{uc}}]'$ is extensional in the sense required by $\textsf{ECF}(\mathcal{U})$.  % and we are done.    
+%
+%\medskip
+%
+%Note that if $\alpha^{1}$ is an associate and $[\varphi_{\textup{uc}}]'(\overline{\alpha}N)>0$, then $N$ is large enough to make sure $\alpha(\t)$
+\end{proof}
+Based on the previous proof, we now obtain the following theorem.
+\begin{thm}\label{photon}
+The system $\RCA_{0}^{\omega}+(\exists \kappa^{3})\PUC(\kappa)$ is a conservative extension of $\RCA_{0}^{2}+\WWKL$.  
+\end{thm}
+\begin{proof}
+For an associate $\alpha^{1}$, we have $(\forall \beta\leq_{1}1)(\exists n^{0})(n\geq\alpha(\overline{\beta}n)>0)$, where the inequality `$\geq$' follows from its status as a neighbourhood function.   
+Now define a binary tree $T$ by $\sigma\in T_{0}\asa [\alpha(\sigma)=0\vee \alpha(\sigma)>|\sigma|]$.  
+By $\WFAN$, we have $(\forall k^{0})(\exists n^{0})\big(\frac{|\{\sigma\in T_{0}:|\sigma|=n\}|}{2^{n}}\leq\frac{1}{k}\big)$, and hence we define the functional $\varphi_{\textup{puc}}$ as
+\[\textstyle
+\varphi_{\textup{puc}}(\alpha, k):=(\mu n^{0})\big(\frac{|\{\sigma:|\sigma|=n\wedge [\alpha(\sigma)=0\vee \alpha(\sigma)>|\sigma|]\}|}{2^{n}}\leq\frac{1}{k}\big),
+\]
+which is as required for the weak intuitionistic fan functional.  
+It remains to be shown that $\varphi_{\textup{puc}}$ is represented by an object in $\textsf{ECF}(\mathcal{U})$.  
+We shall denote this representation by $[\varphi_{\textup{puc}}]$, following the proof of Theorem \ref{protofinal}.    
+\[\textstyle
+[\varphi_{\textup{puc}}](\tau, k):=(\mu n^{0}\leq |\tau|)\big(\frac{|\{\sigma:|\sigma|=n\wedge [\alpha(\sigma)=0\vee \alpha(\sigma)>|\sigma|]\}|}{2^{n}}\leq\frac{1}{k}\big).
+\]
+if such $n$ exists, and zero otherwise.  
+\end{proof}
+\begin{ack}\rm
+This research was supported by the following funding bodies: FWO Flanders, the John Templeton Foundation, the Alexander von Humboldt Foundation, the University of Oslo, and the Japan Society for the Promotion of Science.  
+The authors express his gratitude towards these institutions. 
+%The author would like to thank Grigori Mints, Ulrich Kohlenbach, Horst Osswald, Helmut Schwichtenberg, Stephan Hartmann, and Dag Normann for their valuable advice.  
+%JTF, JSPS, Humboldt, FWO
+% Kohlenbach, Fujiwara, Yamazaki, Benno van den Berg
+\end{ack}
+
+
+
+
+
+\begin{bibdiv}
+\begin{biblist}
+%\bibselect{allkeida}
+\bib{avi2}{article}{
+  author={Avigad, Jeremy},
+  author={Feferman, Solomon},
+  title={G\"odel's functional \(``Dialectica''\) interpretation},
+  conference={ title={Handbook of proof theory}, },
+  book={ series={Stud. Logic Found. Math.}, volume={137}, },
+  date={1998},
+  pages={337--405},
+}
+
+\bib{avi1}{article}{
+  author={Avigad, Jeremy},
+  author={Helzner, Jeremy},
+  title={Transfer principles in nonstandard intuitionistic arithmetic},
+  year={2002},
+  journal={Archive for Mathmatical Logic},
+  volume={41},
+  pages={581--602},
+}
+
+\bib{brie}{article}{
+  author={van den Berg, Benno},
+  author={Briseid, Eyvind},
+  author={Safarik, Pavol},
+  title={A functional interpretation for nonstandard arithmetic},
+  journal={Ann. Pure Appl. Logic},
+  volume={163},
+  date={2012},
+  number={12},
+  pages={1962--1994},
+}
+
+\bib{blaaskeswijsmaken}{article}{
+  author={Blass, Andreas},
+  title={End extensions, conservative extensions, and the Rudin-Frol\'\i k ordering},
+  journal={Trans. Amer. Math. Soc.},
+  volume={225},
+  date={1977},
+  pages={325--340},
+}
+
+\bib{damirzoo}{misc}{
+  author={Dzhafarov, Damir D.},
+  title={Reverse Mathematics Zoo},
+  note={\url {http://rmzoo.uconn.edu/}},
+}
+
+\bib{splitting}{article}{
+   author={Dzhafarov, Damir D.},
+   author={Hirst, Jeffry L.},
+   author={Lakins, Tamara J.},
+   title={Ramsey's theorem for trees: the polarized tree theorem and notions of stability},
+   journal={Arch. Math. Logic},
+   volume={49},
+   date={2010},
+   number={3},
+   pages={399--415},
+%   issn={0933-5846},
+%   review={\MR{2609990 (2011h:03018)}},
+%   doi={10.1007/s00153-010-0179-6},
+}
+
+\bib{fega}{article}{
+  author={Ferreira, Fernando},
+  author={Gaspar, Jaime},
+  title={Nonstandardness and the bounded functional interpretation},
+  journal={Ann. Pure Appl. Logic},
+  volume={166},
+  date={2015},
+  number={6},
+  pages={701--712},
+}
+
+\bib{fried}{article}{
+  author={Friedman, Harvey},
+  title={Some systems of second order arithmetic and their use},
+  conference={ title={Proceedings of the International Congress of Mathematicians (Vancouver, B.\ C., 1974), Vol.\ 1}, },
+  book={ },
+  date={1975},
+  pages={235--242},
+}
+
+\bib{fried2}{article}{
+  author={Friedman, Harvey},
+  title={ Systems of second order arithmetic with restricted induction, I \& II (Abstracts) },
+  journal={Journal of Symbolic Logic},
+  volume={41},
+  date={1976},
+  pages={557--559},
+}
+
+\bib{gordon2}{article}{
+  author={Gordon, Evgeni\v {\i } I.},
+  title={Relatively standard elements in Nelson's internal set theory},
+  journal={Siberian Mathematical Journal},
+  volume={30},
+  number={1},
+  pages={68--73},
+}
+
+\bib{ishi1}{article}{
+  author={Ishihara, Hajime},
+  title={Reverse mathematics in Bishop's constructive mathematics},
+  year={2006},
+  journal={Philosophia Scientiae (Cahier Sp\'ecial)},
+  volume={6},
+  pages={43-59},
+}
+
+\bib{kohlenbach3}{book}{
+  author={Kohlenbach, Ulrich},
+  title={Applied proof theory: proof interpretations and their use in mathematics},
+  series={Springer Monographs in Mathematics},
+  publisher={Springer-Verlag},
+  place={Berlin},
+  date={2008},
+  pages={xx+532},
+}
+
+\bib{kohlenbach2}{article}{
+  author={Kohlenbach, Ulrich},
+  title={Higher order reverse mathematics},
+  conference={ title={Reverse mathematics 2001}, },
+  book={ series={Lect. Notes Log.}, volume={21}, publisher={ASL}, },
+  date={2005},
+  pages={281--295},
+}
+
+\bib{kohlenbach4}{article}{
+  author={Kohlenbach, Ulrich},
+  title={Foundational and mathematical uses of higher types},
+  conference={ title={Reflections on the foundations of mathematics (Stanford, CA, 1998)}, },
+  book={ series={Lect. Notes Log.}, volume={15}, publisher={ASL}, },
+  date={2002},
+  pages={92--116},
+}
+
+\bib{kooltje}{article}{
+  author={Kohlenbach, Ulrich},
+  title={On uniform weak K\"onig's lemma},
+  note={Commemorative Symposium Dedicated to Anne S. Troelstra (Noordwijkerhout, 1999)},
+  journal={Ann. Pure Appl. Logic},
+  volume={114},
+  date={2002},
+  number={1-3},
+  pages={103--116},
+}
+
+\bib{longmann}{book}{
+  author={Longley, John},
+  author={Normann, Dag},
+  title={Higher-order Computability},
+  year={2015},
+  publisher={Springer},
+  series={Theory and Applications of Computability},
+}
+
+\bib{montahue}{article}{
+  author={Montalb{\'a}n, Antonio},
+  title={Open questions in reverse mathematics},
+  journal={Bull. Symbolic Logic},
+  volume={17},
+  date={2011},
+  number={3},
+  pages={431--454},
+}
+
+\bib{mummy}{article}{
+  author={Mummert, Carl},
+  author={Simpson, Stephen G.},
+  title={Reverse mathematics and $\Pi _2^1$ comprehension},
+  journal={Bull. Symbolic Logic},
+  volume={11},
+  date={2005},
+  number={4},
+  pages={526--533},
+}
+
+\bib{wownelly}{article}{
+  author={Nelson, Edward},
+  title={Internal set theory: a new approach to nonstandard analysis},
+  journal={Bull. Amer. Math. Soc.},
+  volume={83},
+  date={1977},
+  number={6},
+  pages={1165--1198},
+}
+
+\bib{robinson1}{book}{
+  author={Robinson, Abraham},
+  title={Non-standard analysis},
+  publisher={North-Holland},
+  place={Amsterdam},
+  date={1966},
+  pages={xi+293},
+}
+
+\bib{yamayamaharehare}{article}{
+  author={Sakamoto, Nobuyuki},
+  author={Yamazaki, Takeshi},
+  title={Uniform versions of some axioms of second order arithmetic},
+  journal={MLQ Math. Log. Q.},
+  volume={50},
+  date={2004},
+  number={6},
+  pages={587--593},
+}
+
+\bib{sayo}{article}{
+  author={Sanders, Sam},
+  author={Yokoyama, Keita},
+  title={The {D}irac delta function in two settings of {R}everse {M}athematics},
+  year={2012},
+  journal={Archive for Mathematical Logic},
+  volume={51},
+  number={1},
+  pages={99-121},
+}
+
+\bib{samGH}{article}{
+  author={Sanders, Sam},
+  title={The Gandy-Hyland functional and a hitherto unknown computational aspect of Nonstandard Analysis},
+  year={2015},
+  journal={Submitted, Available from: \url {http://arxiv.org/abs/1502.03622}},
+}
+
+\bib{samzoo}{article}{
+  author={Sanders, Sam},
+  title={The taming of the Reverse Mathematics zoo},
+  year={2015},
+  journal={Submitted, \url {http://arxiv.org/abs/1412.2022}},
+}
+
+\bib{sambon}{article}{
+  author={Sanders, Sam},
+  title={The unreasonable effectiveness of Nonstandard Analysis},
+  year={2015},
+  journal={Submitted, Available from: \url {http://arxiv.org/abs/1508.07434}},
+}
+
+\bib{samzooII}{article}{
+  author={Sanders, Sam},
+  title={The refining of the taming of the Reverse Mathematics zoo},
+  year={2016},
+  journal={To appear in Notre Dame Journal for Formal Logic, \url {http://arxiv.org/abs/1602.02270}},
+}
+
+\bib{simpson1}{collection}{
+  title={Reverse mathematics 2001},
+  series={Lecture Notes in Logic},
+  volume={21},
+  editor={Simpson, Stephen G.},
+  publisher={ASL},
+  place={La Jolla, CA},
+  date={2005},
+  pages={x+401},
+}
+
+\bib{simpson2}{book}{
+  author={Simpson, Stephen G.},
+  title={Subsystems of second order arithmetic},
+  series={Perspectives in Logic},
+  edition={2},
+  publisher={CUP},
+  date={2009},
+  pages={xvi+444},
+}
+
+\bib{pimpson}{article}{
+  author={Simpson, Stephen G.},
+  author={Yokoyama, Keita},
+  title={A nonstandard counterpart of \textsf {\textup {WWKL}}},
+  journal={Notre Dame J. Form. Log.},
+  volume={52},
+  date={2011},
+  number={3},
+  pages={229--243},
+}
+
+\bib{troelstra1}{book}{
+  author={Troelstra, Anne Sjerp},
+  title={Metamathematical investigation of intuitionistic arithmetic and analysis},
+  note={Lecture Notes in Mathematics, Vol.\ 344},
+  publisher={Springer Berlin},
+  date={1973},
+  pages={xv+485},
+}
+
+\bib{kei1}{article}{
+  author={Simpson, Stephen G.},
+  author={Yokoyama, Keita},
+  title={A nonstandard counterpart of WWKL},
+  journal={Notre Dame J. Form. Log.},
+  volume={52},
+  date={2011},
+  number={3},
+  pages={229--243},
+}
+
+\bib{yuppie}{article}{
+  author={Yu, Xiaokang},
+  title={Lebesgue convergence theorems and reverse mathematics},
+  journal={Math. Logic Quart.},
+  volume={40},
+  date={1994},
+  number={1},
+  pages={1--13},
+}
+
+\bib{yussie}{article}{
+  author={Yu, Xiaokang},
+  author={Simpson, Stephen G.},
+  title={Measure theory and weak K\"onig's lemma},
+  journal={Arch. Math. Logic},
+  volume={30},
+  date={1990},
+  number={3},
+  pages={171--180},
+}
+
+
+\end{biblist}
+\end{bibdiv}
+
+\bye
+
+
+
