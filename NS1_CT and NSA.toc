@@ -1,0 +1,16 @@
+\contentsline {section}{\tocsection {}{1}{Introduction}}{2}{section.1}
+\contentsline {section}{\tocsection {}{2}{Background: internal set theory and Reverse Mathematics}}{2}{section.2}
+\contentsline {subsection}{\tocsubsection {}{2.1}{Internal set theory and its fragments}}{2}{subsection.2.1}
+\contentsline {subsubsection}{\tocsubsubsection {}{2.1.1}{Internal set theory 101}}{2}{subsubsection.2.1.1}
+\contentsline {subsubsection}{\tocsubsubsection {}{2.1.2}{The classical system $\textup {\textsf {P}}$}}{3}{subsubsection.2.1.2}
+\contentsline {subsubsection}{\tocsubsubsection {}{2.1.3}{Notations and conventions}}{4}{subsubsection.2.1.3}
+\contentsline {subsection}{\tocsubsection {}{2.2}{Introducing Reverse Mathematics}}{5}{subsection.2.2}
+\contentsline {section}{\tocsection {}{3}{Main results}}{6}{section.3}
+\contentsline {subsection}{\tocsubsection {}{3.1}{Computing the special fan functional}}{6}{subsection.3.1}
+\contentsline {subsubsection}{\tocsubsubsection {}{3.1.1}{The special and intuitionistic fan functionals}}{6}{subsubsection.3.1.1}
+\contentsline {subsubsection}{\tocsubsubsection {}{3.1.2}{The special fan functional and comprehension functionals}}{8}{subsubsection.3.1.2}
+\contentsline {subsection}{\tocsubsection {}{3.2}{A negative result in Nonstandard Analysis}}{11}{subsection.3.2}
+\contentsline {subsection}{\tocsubsection {}{3.3}{Compactness}}{14}{subsection.3.3}
+\contentsline {subsection}{\tocsubsection {}{3.4}{A special case of the special fan functional}}{15}{subsection.3.4}
+\contentsline {section}{\tocsection {Appendix}{A}{Conservation results}}{17}{appendix.A}
+\contentsline {section}{\tocsection {Appendix}{}{References}}{19}{section*.20}
